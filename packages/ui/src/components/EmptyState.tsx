@@ -67,7 +67,7 @@ export interface EmptyStateProps
 export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
   ({ className, variant, icon = 'default', title, description, action, ...props }, ref) => {
     const IconComponent =
-      typeof icon === 'string' ? iconMap[icon] || iconMap.default : null;
+      typeof icon === 'string' ? iconMap[icon as keyof typeof iconMap] || iconMap.default : null;
 
     return (
       <div

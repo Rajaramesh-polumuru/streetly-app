@@ -24,12 +24,8 @@ export type { TextareaProps } from './Textarea';
 
 export {
   Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
   SelectItem,
   SelectGroup,
-  SelectLabel,
   SelectSeparator
 } from './Select';
 export type { SelectProps } from './Select';
@@ -119,7 +115,7 @@ export {
 } from './AlertDialog';
 
 // Data Display Components
-export { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from './Avatar';
+export { Avatar, AvatarGroup } from './Avatar';
 export type { AvatarProps, AvatarGroupProps } from './Avatar';
 
 export { EmptyState, EmptyStateCard } from './EmptyState';

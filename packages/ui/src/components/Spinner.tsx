@@ -89,7 +89,7 @@ export interface SpinnerOverlayProps extends Omit<SpinnerProps, 'centered'> {
 }
 
 export const SpinnerOverlay = React.forwardRef<HTMLDivElement, SpinnerOverlayProps>(
-  ({ className, message, size = 'xl', variant = 'white', ...props }, ref) => {
+  ({ className: _className, message, size = 'xl', variant = 'white', ...props }, ref) => {
     return (
       <div
         ref={ref}
