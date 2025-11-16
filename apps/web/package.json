@@ -13,9 +13,9 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@repo/types": "workspace:*",
-    "@repo/ui": "workspace:*",
-    "@repo/utils": "workspace:*",
+    "@repo/types": "*",
+    "@repo/ui": "*",
+    "@repo/utils": "*",
     "@tanstack/react-query": "^5.17.19",
     "axios": "^1.6.5",
     "clsx": "^2.1.0",
@@ -30,8 +30,8 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
     "@playwright/test": "^1.40.1",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@types/node": "^20.10.6",
