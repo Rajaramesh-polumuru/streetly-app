@@ -9,17 +9,13 @@
     "./*": "./src/*.tsx"
   },
   "scripts": {
+    "build": "echo 'No build needed for UI package'",
     "lint": "eslint .",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "scripts": {
-    "build": "echo 'No build needed for UI package'",
-    "lint": "eslint .",
-    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
