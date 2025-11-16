@@ -1,9 +1,9 @@
-import React from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { User } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { getInitials } from '../lib/utils';
+import React from 'react';
+
+import { cn , getInitials } from '../lib/utils';
 
 const avatarVariants = cva(
   'relative flex shrink-0 overflow-hidden rounded-full transition-all duration-300',

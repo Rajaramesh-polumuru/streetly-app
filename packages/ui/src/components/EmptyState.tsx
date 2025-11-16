@@ -1,6 +1,7 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { FileQuestion, Search, ShoppingBag, Inbox, AlertCircle } from 'lucide-react';
+import React from 'react';
+
 import { cn } from '../lib/utils';
 
 const emptyStateVariants = cva(
