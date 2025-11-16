@@ -4,7 +4,7 @@
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
@@ -21,7 +21,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "incremental": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noEmit": false
   },
   "exclude": ["node_modules", "dist", "build", ".next", "coverage"]
 }
