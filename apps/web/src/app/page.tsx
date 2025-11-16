@@ -1,4 +1,13 @@
-import Link from 'next/link';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Badge,
+  Container,
+} from '@repo/ui';
 import {
   QrCode,
   ClipboardList,
@@ -10,14 +19,9 @@ import {
   ArrowRight,
   Smartphone,
   TrendingUp,
-  Users,
   Zap,
 } from 'lucide-react';
-
-import { Button } from '@repo/ui';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@repo/ui';
-import { Badge } from '@repo/ui';
-import { Container } from '@repo/ui';
+import Link from 'next/link';
 
 import { APP_NAME, APP_TAGLINE, ROUTES, FEATURES, PRICING } from '@/config/constants';
 
@@ -36,13 +40,22 @@ export default function Home() {
             </div>
 
             <div className="hidden items-center gap-8 md:flex">
-              <a href="#features" className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors">
+              <a
+                href="#features"
+                className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors"
+              >
                 Features
               </a>
-              <a href="#how-it-works" className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors">
+              <a
+                href="#how-it-works"
+                className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors"
+              >
                 How It Works
               </a>
-              <a href="#pricing" className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors">
+              <a
+                href="#pricing"
+                className="text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors"
+              >
                 Pricing
               </a>
             </div>
@@ -78,7 +91,8 @@ export default function Home() {
               </h1>
 
               <p className="text-xl text-primary-700 max-w-2xl">
-                Streamline orders, boost revenue, and delight customers with our all-in-one POS and digital menu platform. Built specifically for restaurants in India.
+                Streamline orders, boost revenue, and delight customers with our all-in-one POS and
+                digital menu platform. Built specifically for restaurants in India.
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -144,7 +158,7 @@ export default function Home() {
               Everything You Need to Run Your Restaurant
             </h2>
             <p className="text-xl text-primary-700 max-w-2xl mx-auto">
-              From contactless ordering to business intelligence, we've got you covered.
+              From contactless ordering to business intelligence, we&apos;ve got you covered.
             </p>
           </div>
 
@@ -187,9 +201,15 @@ export default function Home() {
                 color: 'secondary',
               },
             ].map((feature, index) => (
-              <Card key={index} variant="default" className="group hover:shadow-xl transition-all duration-300">
+              <Card
+                key={index}
+                variant="default"
+                className="group hover:shadow-xl transition-all duration-300"
+              >
                 <CardHeader>
-                  <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-${feature.color}-100 text-${feature.color}-600 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-${feature.color}-100 text-${feature.color}-600 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     {feature.icon}
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
@@ -208,9 +228,7 @@ export default function Home() {
             <Badge variant="success" size="md" className="mb-4">
               How It Works
             </Badge>
-            <h2 className="text-4xl font-bold text-primary-900 mb-4">
-              Get Started in Minutes
-            </h2>
+            <h2 className="text-4xl font-bold text-primary-900 mb-4">Get Started in Minutes</h2>
             <p className="text-xl text-primary-700 max-w-2xl mx-auto">
               Simple setup, powerful results. Launch your digital menu in just 3 steps.
             </p>
@@ -222,19 +240,22 @@ export default function Home() {
                 step: '01',
                 icon: <Smartphone className="h-8 w-8" />,
                 title: 'Sign Up & Customize',
-                description: 'Create your account and add your restaurant details, logo, and menu items.',
+                description:
+                  'Create your account and add your restaurant details, logo, and menu items.',
               },
               {
                 step: '02',
                 icon: <QrCode className="h-8 w-8" />,
                 title: 'Generate QR Codes',
-                description: 'Instantly generate unique QR codes for each table in your restaurant.',
+                description:
+                  'Instantly generate unique QR codes for each table in your restaurant.',
               },
               {
                 step: '03',
                 icon: <TrendingUp className="h-8 w-8" />,
                 title: 'Start Accepting Orders',
-                description: 'Customers scan, order, and pay - while you track everything in real-time.',
+                description:
+                  'Customers scan, order, and pay - while you track everything in real-time.',
               },
             ].map((step, index) => (
               <div key={index} className="relative">
@@ -311,11 +332,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <Link href={ROUTES.REGISTER}>
-                    <Button
-                      variant={plan.recommended ? 'accent' : 'outline'}
-                      size="lg"
-                      fullWidth
-                    >
+                    <Button variant={plan.recommended ? 'accent' : 'outline'} size="lg" fullWidth>
                       Get Started
                     </Button>
                   </Link>
@@ -360,20 +377,27 @@ export default function Home() {
         <Container maxWidth="lg">
           <Card variant="elevated" className="overflow-hidden">
             <div className="bg-gradient-to-r from-accent-600 to-accent-500 p-12 text-center text-white">
-              <h2 className="text-4xl font-bold mb-4">
-                Ready to Transform Your Restaurant?
-              </h2>
+              <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Restaurant?</h2>
               <p className="text-xl mb-8 text-accent-50">
-                Join 50+ restaurants already growing with Streetly. Start your 14-day free trial today.
+                Join 50+ restaurants already growing with Streetly. Start your 14-day free trial
+                today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href={ROUTES.REGISTER}>
-                  <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    rightIcon={<ArrowRight className="h-5 w-5" />}
+                  >
                     Start Free Trial
                   </Button>
                 </Link>
                 <Link href={ROUTES.LOGIN}>
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white/10"
+                  >
                     Sign In
                   </Button>
                 </Link>
@@ -402,33 +426,71 @@ export default function Home() {
             <div>
               <h4 className="font-semibold text-primary-900 mb-4">Product</h4>
               <ul className="space-y-2 text-sm text-primary-600">
-                <li><a href="#features" className="hover:text-accent-600">Features</a></li>
-                <li><a href="#pricing" className="hover:text-accent-600">Pricing</a></li>
-                <li><a href="#how-it-works" className="hover:text-accent-600">How It Works</a></li>
+                <li>
+                  <a href="#features" className="hover:text-accent-600">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-accent-600">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#how-it-works" className="hover:text-accent-600">
+                    How It Works
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-primary-900 mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-primary-600">
-                <li><a href="#" className="hover:text-accent-600">About</a></li>
-                <li><a href="#" className="hover:text-accent-600">Blog</a></li>
-                <li><a href="#" className="hover:text-accent-600">Contact</a></li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    About
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    Blog
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    Contact
+                  </button>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-primary-900 mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-primary-600">
-                <li><a href="#" className="hover:text-accent-600">Privacy</a></li>
-                <li><a href="#" className="hover:text-accent-600">Terms</a></li>
-                <li><a href="#" className="hover:text-accent-600">Security</a></li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    Privacy
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    Terms
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="hover:text-accent-600">
+                    Security
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
 
           <div className="mt-12 pt-8 border-t border-neutral-400 text-center text-sm text-primary-600">
-            <p>&copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.
+            </p>
           </div>
         </Container>
       </footer>

@@ -1,16 +1,22 @@
 'use client';
 
 import type { RegisterDto } from '@repo/types';
+import {
+  Button,
+  Input,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Alert,
+  AlertDescription,
+  Separator,
+  Badge,
+} from '@repo/ui';
+import { QrCode, Mail, Lock, User, Building2, Phone, ArrowLeft, Check } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { QrCode, Mail, Lock, User, Building2, Phone, ArrowLeft, Check } from 'lucide-react';
-
-import { Button } from '@repo/ui';
-import { Input } from '@repo/ui';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@repo/ui';
-import { Alert, AlertDescription } from '@repo/ui';
-import { Separator } from '@repo/ui';
-import { Badge } from '@repo/ui';
 
 import { ROUTES, APP_NAME } from '@/config/constants';
 import { useRegister } from '@/hooks/use-auth';
@@ -35,7 +41,10 @@ export default function RegisterPage() {
       {/* Header */}
       <div className="border-b border-neutral-400 bg-white py-4">
         <div className="container mx-auto px-4">
-          <Link href={ROUTES.HOME} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link
+            href={ROUTES.HOME}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500">
               <QrCode className="h-5 w-5 text-white" />
             </div>
@@ -51,12 +60,8 @@ export default function RegisterPage() {
             {/* Benefits Sidebar */}
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-primary-900 mb-2">
-                  Start Your Free Trial
-                </h3>
-                <p className="text-primary-700">
-                  Join 50+ restaurants growing with Streetly
-                </p>
+                <h3 className="text-2xl font-bold text-primary-900 mb-2">Start Your Free Trial</h3>
+                <p className="text-primary-700">Join 50+ restaurants growing with Streetly</p>
               </div>
 
               <div className="space-y-4">
@@ -93,9 +98,7 @@ export default function RegisterPage() {
               <Card variant="elevated" padding="lg">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl">Create Your Account</CardTitle>
-                  <CardDescription>
-                    Set up your restaurant in minutes
-                  </CardDescription>
+                  <CardDescription>Set up your restaurant in minutes</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -159,7 +162,7 @@ export default function RegisterPage() {
                       {...register('phone', {
                         required: 'Phone number is required',
                         pattern: {
-                          value: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                          value: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
                           message: 'Invalid phone number',
                         },
                       })}
@@ -197,8 +200,7 @@ export default function RegisterPage() {
                       error={errors.confirmPassword?.message}
                       {...register('confirmPassword', {
                         required: 'Please confirm your password',
-                        validate: (value) =>
-                          value === password || 'Passwords do not match',
+                        validate: (value) => value === password || 'Passwords do not match',
                       })}
                     />
 
@@ -219,7 +221,8 @@ export default function RegisterPage() {
                     {registerMutation.isError && (
                       <Alert variant="error">
                         <AlertDescription>
-                          {registerMutation.error?.message || 'Registration failed. Please try again.'}
+                          {registerMutation.error?.message ||
+                            'Registration failed. Please try again.'}
                         </AlertDescription>
                       </Alert>
                     )}
