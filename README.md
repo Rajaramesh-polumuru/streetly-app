@@ -2,7 +2,7 @@
 
 > Production-ready, scalable MERN stack monorepo with TypeScript, Turborepo, and industry best practices.
 
-[![CI](https://github.com/yourusername/mern-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/mern-monorepo/actions/workflows/ci.yml)
+[![CI](https://github.com/Rajaramesh-polumuru/streetly-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Rajaramesh-polumuru/streetly-app/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
@@ -58,8 +58,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/mern-monorepo.git
-cd mern-monorepo
+git clone https://github.com/Rajaramesh-polumuru/streetly-app.git
+cd streetly-app
 ```
 
 ### 2. Install dependencies
