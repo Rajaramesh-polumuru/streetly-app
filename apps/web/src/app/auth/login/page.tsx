@@ -3,12 +3,23 @@
 import type { LoginDto } from '@repo/types';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { QrCode, Mail, Lock, ArrowLeft } from 'lucide-react';
 
-import { ROUTES } from '@/config/constants';
+import { Button } from '@repo/ui';
+import { Input } from '@repo/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@repo/ui';
+import { Alert, AlertDescription } from '@repo/ui';
+import { Separator } from '@repo/ui';
+
+import { ROUTES, APP_NAME } from '@/config/constants';
 import { useLogin } from '@/hooks/use-auth';
 
 export default function LoginPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginDto>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginDto>();
   const loginMutation = useLogin();
 
   const onSubmit = (data: LoginDto) => {
@@ -16,74 +27,133 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md">
-        <div className="bg-white p-8 rounded-lg shadow-md">
-          <h1 className="text-2xl font-bold text-center mb-6">Sign In</h1>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register('email', { required: 'Email is required' })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="you@example.com"
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-              )}
+    <div className="min-h-screen bg-neutral-300 flex flex-col">
+      {/* Header */}
+      <div className="border-b border-neutral-400 bg-white py-4">
+        <div className="container mx-auto px-4">
+          <Link href={ROUTES.HOME} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500">
+              <QrCode className="h-5 w-5 text-white" />
             </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                {...register('password', { required: 'Password is required' })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="••••••••"
-              />
-              {errors.password && (
-                <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
-              )}
-            </div>
-
-            {loginMutation.isError && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-                {loginMutation.error.message}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loginMutation.isPending}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loginMutation.isPending ? 'Signing in...' : 'Sign In'}
-            </button>
-          </form>
-
-          <p className="text-center text-sm text-gray-600 mt-4">
-            Don&apos;t have an account?{' '}
-            <Link href={ROUTES.REGISTER} className="text-blue-600 hover:underline">
-              Sign up
-            </Link>
-          </p>
-        </div>
-
-        <div className="text-center mt-4">
-          <Link href={ROUTES.HOME} className="text-sm text-gray-600 hover:text-gray-900">
-            ← Back to home
+            <span className="text-lg font-bold text-primary-900">{APP_NAME}</span>
           </Link>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
+          <Card variant="elevated" padding="lg">
+            <CardHeader className="text-center">
+              <CardTitle className="text-3xl">Welcome Back</CardTitle>
+              <CardDescription>
+                Sign in to your restaurant dashboard
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Email Input */}
+                <Input
+                  id="email"
+                  type="email"
+                  label="Email Address"
+                  placeholder="you@restaurant.com"
+                  leftIcon={<Mail className="h-4 w-4" />}
+                  error={errors.email?.message}
+                  {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'Invalid email address',
+                    },
+                  })}
+                />
+
+                {/* Password Input */}
+                <Input
+                  id="password"
+                  type="password"
+                  label="Password"
+                  placeholder="Enter your password"
+                  leftIcon={<Lock className="h-4 w-4" />}
+                  error={errors.password?.message}
+                  {...register('password', {
+                    required: 'Password is required',
+                    minLength: {
+                      value: 6,
+                      message: 'Password must be at least 6 characters',
+                    },
+                  })}
+                />
+
+                {/* Forgot Password */}
+                <div className="flex justify-end">
+                  <Link
+                    href="#"
+                    className="text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
+
+                {/* Error Alert */}
+                {loginMutation.isError && (
+                  <Alert variant="error">
+                    <AlertDescription>
+                      {loginMutation.error?.message || 'Invalid email or password. Please try again.'}
+                    </AlertDescription>
+                  </Alert>
+                )}
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  variant="accent"
+                  size="lg"
+                  fullWidth
+                  isLoading={loginMutation.isPending}
+                  loadingText="Signing in..."
+                >
+                  Sign In
+                </Button>
+              </form>
+
+              {/* Divider */}
+              <div className="relative my-6">
+                <Separator />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-sm text-neutral-600">
+                  or
+                </span>
+              </div>
+
+              {/* Sign Up Link */}
+              <div className="text-center">
+                <p className="text-sm text-primary-700">
+                  Don't have an account?{' '}
+                  <Link
+                    href={ROUTES.REGISTER}
+                    className="font-semibold text-accent-600 hover:text-accent-700 transition-colors"
+                  >
+                    Start your free trial
+                  </Link>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Back to Home */}
+          <div className="mt-6 text-center">
+            <Link
+              href={ROUTES.HOME}
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to home
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
