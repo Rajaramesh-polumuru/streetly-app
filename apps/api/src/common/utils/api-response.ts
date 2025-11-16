@@ -37,13 +37,11 @@ export class ApiResponse {
    */
   static paginated<T>(
     data: T[],
-    page: number,
-    limit: number,
-    total: number,
+    _page: number,
+    _limit: number,
+    _total: number,
     message = 'Success'
   ): IApiResponse<T[]> {
-    const totalPages = Math.ceil(total / limit);
-
     return {
       success: true,
       data,

@@ -1,10 +1,11 @@
 import type { Request, Response } from 'express';
 import { z } from 'zod';
 
-import { UserService } from './users.service.js';
 import { UserRepository } from './users.repository.js';
-import { asyncHandler } from '@/common/utils/async-handler.js';
+import { UserService } from './users.service.js';
+
 import { ApiResponse } from '@/common/utils/api-response.js';
+import { asyncHandler } from '@/common/utils/async-handler.js';
 import { HTTP_STATUS } from '@/config/constants.js';
 
 // Instantiate repository and service

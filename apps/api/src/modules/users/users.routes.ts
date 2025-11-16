@@ -1,9 +1,10 @@
-import { Router } from 'express';
 import { createUserSchema, updateUserSchema, paginationSchema } from '@repo/types';
+import { Router } from 'express';
 
 import * as userController from './users.controller.js';
-import { validate } from '@/common/middlewares/validate.middleware.js';
+
 import { authenticate, authorize } from '@/common/middlewares/auth.middleware.js';
+import { validate } from '@/common/middlewares/validate.middleware.js';
 import { USER_ROLES } from '@/config/constants.js';
 
 const router = Router();

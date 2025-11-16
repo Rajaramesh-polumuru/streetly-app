@@ -1,11 +1,12 @@
+import type { LoginDto } from '@repo/types';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import type { LoginDto } from '@repo/types';
 
-import { UserRepository } from '../users/users.repository.js';
+import type { UserRepository } from '../users/users.repository.js';
+
 import { AppError } from '@/common/utils/app-error.js';
-import { env } from '@/config/env.js';
 import { HTTP_STATUS } from '@/config/constants.js';
+import { env } from '@/config/env.js';
 
 /**
  * Auth service - handles authentication logic

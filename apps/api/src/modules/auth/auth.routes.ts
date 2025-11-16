@@ -1,9 +1,10 @@
-import { Router } from 'express';
 import { loginSchema } from '@repo/types';
+import { Router } from 'express';
 
 import * as authController from './auth.controller.js';
-import { validate } from '@/common/middlewares/validate.middleware.js';
+
 import { authRateLimiter } from '@/common/middlewares/rate-limit.middleware.js';
+import { validate } from '@/common/middlewares/validate.middleware.js';
 
 const router = Router();
 

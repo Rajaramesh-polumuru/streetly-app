@@ -1,9 +1,11 @@
 import type { Request, Response } from 'express';
 
-import { AuthService } from './auth.service.js';
 import { UserRepository } from '../users/users.repository.js';
-import { asyncHandler } from '@/common/utils/async-handler.js';
+
+import { AuthService } from './auth.service.js';
+
 import { ApiResponse } from '@/common/utils/api-response.js';
+import { asyncHandler } from '@/common/utils/async-handler.js';
 import { HTTP_STATUS } from '@/config/constants.js';
 
 // Instantiate repository and service

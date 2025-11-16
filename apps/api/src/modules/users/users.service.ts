@@ -1,7 +1,8 @@
-import bcrypt from 'bcrypt';
 import type { CreateUserDto, UpdateUserDto } from '@repo/types';
+import bcrypt from 'bcrypt';
 
-import { UserRepository } from './users.repository.js';
+import type { UserRepository } from './users.repository.js';
+
 import { AppError } from '@/common/utils/app-error.js';
 import { HTTP_STATUS } from '@/config/constants.js';
 

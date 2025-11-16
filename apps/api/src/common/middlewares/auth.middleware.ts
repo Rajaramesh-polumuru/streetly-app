@@ -3,8 +3,10 @@ import jwt from 'jsonwebtoken';
 
 import { AppError } from '../utils/app-error.js';
 import { asyncHandler } from '../utils/async-handler.js';
-import { env } from '@/config/env.js';
+
 import { HTTP_STATUS } from '@/config/constants.js';
+import { env } from '@/config/env.js';
+
 
 interface JwtPayload {
   id: string;
@@ -13,11 +15,9 @@ interface JwtPayload {
 }
 
 // Extend Express Request type
-declare global {
-  namespace Express {
-    interface Request {
-      user?: JwtPayload;
-    }
+declare module 'express-serve-static-core' {
+  interface Request {
+    user?: JwtPayload;
   }
 }
 
@@ -53,7 +53,7 @@ export const authenticate = asyncHandler(
  * Authorization middleware - checks user role
  */
 export const authorize = (...roles: string[]) => {
-  return (req: Request, _res: Response, next: NextFunction) => {
+  return (req: Request, _res: Response, next: NextFunction): void => {
     if (!req.user) {
       throw new AppError('User not authenticated', HTTP_STATUS.UNAUTHORIZED);
     }

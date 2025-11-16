@@ -1,18 +1,18 @@
-import express, { type Application } from 'express';
-import helmet from 'helmet';
-import cors from 'cors';
-import morgan from 'morgan';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express, { type Application } from 'express';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
-import { env } from './config/env.js';
-import { API_VERSION } from './config/constants.js';
 import { errorHandler, notFoundHandler } from './common/middlewares/error.middleware.js';
 import { apiRateLimiter } from './common/middlewares/rate-limit.middleware.js';
+import { API_VERSION } from './config/constants.js';
+import { env } from './config/env.js';
 
 // Import routes
-import userRoutes from './modules/users/users.routes.js';
 import authRoutes from './modules/auth/auth.routes.js';
+import userRoutes from './modules/users/users.routes.js';
 
 /**
  * Create and configure Express application
