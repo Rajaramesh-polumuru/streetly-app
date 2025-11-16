@@ -43,7 +43,7 @@ export const authenticate = asyncHandler(
       req.user = decoded;
 
       next();
-    } catch (error) {
+    } catch {
       throw new AppError('Invalid or expired token', HTTP_STATUS.UNAUTHORIZED);
     }
   }
@@ -54,17 +54,21 @@ export const authenticate = asyncHandler(
  */
 export const authorize = (...roles: string[]) => {
   return (req: Request, _res: Response, next: NextFunction): void => {
-    if (!req.user) {
-      throw new AppError('User not authenticated', HTTP_STATUS.UNAUTHORIZED);
-    }
+    try {
+      if (!req.user) {
+        throw new AppError('User not authenticated', HTTP_STATUS.UNAUTHORIZED);
+      }
 
-    if (!req.user.role || !roles.includes(req.user.role)) {
-      throw new AppError(
-        'You do not have permission to perform this action',
-        HTTP_STATUS.FORBIDDEN
-      );
-    }
+      if (!req.user.role || !roles.includes(req.user.role)) {
+        throw new AppError(
+          'You do not have permission to perform this action',
+          HTTP_STATUS.FORBIDDEN
+        );
+      }
 
-    next();
+      next();
+    } catch (err) {
+      next(err);
+    }
   };
 };

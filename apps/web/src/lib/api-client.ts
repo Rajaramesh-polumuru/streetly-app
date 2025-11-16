@@ -1,9 +1,9 @@
+import type { ApiResponse, ApiError } from '@repo/types';
 import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosError,
 } from 'axios';
-import type { ApiResponse, ApiError } from '@repo/types';
 
 /**
  * API Client class for making HTTP requests

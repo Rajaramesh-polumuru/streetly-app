@@ -1,7 +1,7 @@
 'use client';
 
-import { useAuthStore } from '@/stores/auth-store';
 import { useLogout } from '@/hooks/use-auth';
+import { useAuthStore } from '@/stores/auth-store';
 
 export default function DashboardPage() {
   const user = useAuthStore((state) => state.user);

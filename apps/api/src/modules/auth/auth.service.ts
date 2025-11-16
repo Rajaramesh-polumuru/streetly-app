@@ -80,7 +80,7 @@ export class AuthService {
       return {
         accessToken: newAccessToken,
       };
-    } catch (error) {
+    } catch {
       throw new AppError('Invalid refresh token', HTTP_STATUS.UNAUTHORIZED);
     }
   }

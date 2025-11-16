@@ -1,11 +1,11 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
 import type { LoginDto } from '@repo/types';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
 
-import { useLogin } from '@/hooks/use-auth';
 import { ROUTES } from '@/config/constants';
+import { useLogin } from '@/hooks/use-auth';
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginDto>();

@@ -1,5 +1,4 @@
 import type { Request, Response } from 'express';
-import { z } from 'zod';
 
 import { UserRepository } from './users.repository.js';
 import { UserService } from './users.service.js';

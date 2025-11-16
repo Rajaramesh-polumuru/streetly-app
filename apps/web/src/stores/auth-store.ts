@@ -1,6 +1,6 @@
+import type { User, AuthTokens } from '@repo/types';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { User, AuthTokens } from '@repo/types';
 
 interface AuthState {
   user: User | null;

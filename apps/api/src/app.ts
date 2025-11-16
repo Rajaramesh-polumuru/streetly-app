@@ -9,7 +9,6 @@ import { errorHandler, notFoundHandler } from './common/middlewares/error.middle
 import { apiRateLimiter } from './common/middlewares/rate-limit.middleware.js';
 import { API_VERSION } from './config/constants.js';
 import { env } from './config/env.js';
-
 // Import routes
 import authRoutes from './modules/auth/auth.routes.js';
 import userRoutes from './modules/users/users.routes.js';
