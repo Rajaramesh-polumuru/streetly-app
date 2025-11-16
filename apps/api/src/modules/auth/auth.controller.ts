@@ -13,6 +13,16 @@ const userRepository = new UserRepository();
 const authService = new AuthService(userRepository);
 
 /**
+ * Register a new user
+ * POST /api/v1/auth/register
+ */
+export const register = asyncHandler(async (req: Request, res: Response) => {
+  const result = await authService.register(req.body);
+
+  res.status(HTTP_STATUS.CREATED).json(ApiResponse.success(result, 'Registration successful'));
+});
+
+/**
  * Login user
  * POST /api/v1/auth/login
  */
