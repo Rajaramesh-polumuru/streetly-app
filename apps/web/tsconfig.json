@@ -9,7 +9,10 @@
       "@/hooks/*": ["./src/hooks/*"],
       "@/stores/*": ["./src/stores/*"],
       "@/types/*": ["./src/types/*"],
-      "@/config/*": ["./src/config/*"]
+      "@/config/*": ["./src/config/*"],
+      "@repo/types": ["../../packages/types/src/index.ts"],
+      "@repo/utils": ["../../packages/utils/src/index.ts"],
+      "@repo/ui": ["../../packages/ui/src/index.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
