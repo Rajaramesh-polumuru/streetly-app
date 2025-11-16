@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@repo/ui', '@repo/types', '@repo/utils'],
-  output: 'standalone',
   images: {
     domains: [],
   },
