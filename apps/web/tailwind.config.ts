@@ -11,7 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand Colors (60-30-10 rule)
+        // ColorHunt Palette - 60-30-10 Rule
+        // 60% #EEEEEE (neutral/background)
+        // 30% #222831 & #393E46 (primary/secondary)
+        // 10% #00ADB5 (accent)
+
         primary: {
           DEFAULT: '#222831',
           50: '#f5f6f7',
@@ -39,17 +43,17 @@ const config: Config = {
           900: '#14161a',
         },
         accent: {
-          DEFAULT: '#10B981',
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
+          DEFAULT: '#00ADB5',
+          50: '#e6f9fa',
+          100: '#ccf3f5',
+          200: '#99e7eb',
+          300: '#66dbe0',
+          400: '#33cfd6',
+          500: '#00ADB5',
+          600: '#008a91',
+          700: '#00676d',
+          800: '#004548',
+          900: '#002224',
         },
         neutral: {
           DEFAULT: '#EEEEEE',
@@ -66,17 +70,17 @@ const config: Config = {
         },
         // Semantic colors for states
         success: {
-          DEFAULT: '#10B981',
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
+          DEFAULT: '#00ADB5',
+          50: '#e6f9fa',
+          100: '#ccf3f5',
+          200: '#99e7eb',
+          300: '#66dbe0',
+          400: '#33cfd6',
+          500: '#00ADB5',
+          600: '#008a91',
+          700: '#00676d',
+          800: '#004548',
+          900: '#002224',
         },
         warning: {
           DEFAULT: '#F59E0B',
@@ -105,27 +109,27 @@ const config: Config = {
           900: '#7f1d1d',
         },
         info: {
-          DEFAULT: '#3B82F6',
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3B82F6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          DEFAULT: '#00ADB5',
+          50: '#e6f9fa',
+          100: '#ccf3f5',
+          200: '#99e7eb',
+          300: '#66dbe0',
+          400: '#33cfd6',
+          500: '#00ADB5',
+          600: '#008a91',
+          700: '#00676d',
+          800: '#004548',
+          900: '#002224',
         },
       },
 
       // Typography Scale (Major Third - 1.250)
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
-        'base': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+        xs: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+        sm: ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
+        base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
+        lg: ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0' }],
+        xl: ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
         '2xl': ['1.5rem', { lineHeight: '2rem', letterSpacing: '-0.01em' }],
         '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
         '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.02em' }],
@@ -134,36 +138,36 @@ const config: Config = {
 
       // Spacing Scale (4px base)
       spacing: {
-        'xs': '0.25rem',    // 4px
-        'sm': '0.5rem',     // 8px
-        'md': '1rem',       // 16px
-        'lg': '1.5rem',     // 24px
-        'xl': '2rem',       // 32px
-        '2xl': '3rem',      // 48px
-        '3xl': '4rem',      // 64px
-        '4xl': '6rem',      // 96px
+        xs: '0.25rem', // 4px
+        sm: '0.5rem', // 8px
+        md: '1rem', // 16px
+        lg: '1.5rem', // 24px
+        xl: '2rem', // 32px
+        '2xl': '3rem', // 48px
+        '3xl': '4rem', // 64px
+        '4xl': '6rem', // 96px
       },
 
       // Border Radius
       borderRadius: {
-        'none': '0',
-        'sm': '0.25rem',    // 4px
-        'DEFAULT': '0.5rem', // 8px
-        'md': '0.75rem',    // 12px
-        'lg': '1rem',       // 16px
-        'xl': '1.5rem',     // 24px
-        'full': '9999px',
+        none: '0',
+        sm: '0.25rem', // 4px
+        DEFAULT: '0.5rem', // 8px
+        md: '0.75rem', // 12px
+        lg: '1rem', // 16px
+        xl: '1.5rem', // 24px
+        full: '9999px',
       },
 
       // Shadows (Elevation System)
       boxShadow: {
-        'xs': '0 1px 2px 0 rgba(34, 40, 49, 0.05)',
-        'sm': '0 1px 3px 0 rgba(34, 40, 49, 0.1), 0 1px 2px -1px rgba(34, 40, 49, 0.1)',
-        'DEFAULT': '0 4px 6px -1px rgba(34, 40, 49, 0.1), 0 2px 4px -2px rgba(34, 40, 49, 0.1)',
-        'md': '0 10px 15px -3px rgba(34, 40, 49, 0.1), 0 4px 6px -4px rgba(34, 40, 49, 0.1)',
-        'lg': '0 20px 25px -5px rgba(34, 40, 49, 0.1), 0 8px 10px -6px rgba(34, 40, 49, 0.1)',
-        'xl': '0 25px 50px -12px rgba(34, 40, 49, 0.25)',
-        'inner': 'inset 0 2px 4px 0 rgba(34, 40, 49, 0.05)',
+        xs: '0 1px 2px 0 rgba(34, 40, 49, 0.05)',
+        sm: '0 1px 3px 0 rgba(34, 40, 49, 0.1), 0 1px 2px -1px rgba(34, 40, 49, 0.1)',
+        DEFAULT: '0 4px 6px -1px rgba(34, 40, 49, 0.1), 0 2px 4px -2px rgba(34, 40, 49, 0.1)',
+        md: '0 10px 15px -3px rgba(34, 40, 49, 0.1), 0 4px 6px -4px rgba(34, 40, 49, 0.1)',
+        lg: '0 20px 25px -5px rgba(34, 40, 49, 0.1), 0 8px 10px -6px rgba(34, 40, 49, 0.1)',
+        xl: '0 25px 50px -12px rgba(34, 40, 49, 0.25)',
+        inner: 'inset 0 2px 4px 0 rgba(34, 40, 49, 0.05)',
       },
 
       // Animation
@@ -196,16 +200,13 @@ const config: Config = {
 
       // Transitions
       transitionDuration: {
-        'fast': '150ms',
-        'DEFAULT': '300ms',
-        'slow': '500ms',
+        fast: '150ms',
+        DEFAULT: '300ms',
+        slow: '500ms',
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 };
 
 export default config;
