@@ -1,15 +1,21 @@
 'use client';
 
 import type { LoginDto } from '@repo/types';
+import {
+  Button,
+  Input,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Alert,
+  AlertDescription,
+  Separator,
+} from '@repo/ui';
+import { QrCode, Mail, Lock, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { QrCode, Mail, Lock, ArrowLeft } from 'lucide-react';
-
-import { Button } from '@repo/ui';
-import { Input } from '@repo/ui';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@repo/ui';
-import { Alert, AlertDescription } from '@repo/ui';
-import { Separator } from '@repo/ui';
 
 import { ROUTES, APP_NAME } from '@/config/constants';
 import { useLogin } from '@/hooks/use-auth';
@@ -31,7 +37,10 @@ export default function LoginPage() {
       {/* Header */}
       <div className="border-b border-neutral-400 bg-white py-4">
         <div className="container mx-auto px-4">
-          <Link href={ROUTES.HOME} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link
+            href={ROUTES.HOME}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500">
               <QrCode className="h-5 w-5 text-white" />
             </div>
@@ -46,9 +55,7 @@ export default function LoginPage() {
           <Card variant="elevated" padding="lg">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl">Welcome Back</CardTitle>
-              <CardDescription>
-                Sign in to your restaurant dashboard
-              </CardDescription>
+              <CardDescription>Sign in to your restaurant dashboard</CardDescription>
             </CardHeader>
 
             <CardContent>
@@ -101,7 +108,8 @@ export default function LoginPage() {
                 {loginMutation.isError && (
                   <Alert variant="error">
                     <AlertDescription>
-                      {loginMutation.error?.message || 'Invalid email or password. Please try again.'}
+                      {loginMutation.error?.message ||
+                        'Invalid email or password. Please try again.'}
                     </AlertDescription>
                   </Alert>
                 )}
@@ -130,7 +138,7 @@ export default function LoginPage() {
               {/* Sign Up Link */}
               <div className="text-center">
                 <p className="text-sm text-primary-700">
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?{' '}
                   <Link
                     href={ROUTES.REGISTER}
                     className="font-semibold text-accent-600 hover:text-accent-700 transition-colors"

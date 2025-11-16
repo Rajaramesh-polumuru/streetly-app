@@ -77,6 +77,7 @@ export const PRICING = {
       '1 Restaurant Location',
       'Email Support',
     ],
+    recommended: false,
   },
   PROFESSIONAL: {
     name: 'Professional',
@@ -106,5 +107,6 @@ export const PRICING = {
       'Dedicated Account Manager',
       '24/7 Phone Support',
     ],
+    recommended: false,
   },
 } as const;
