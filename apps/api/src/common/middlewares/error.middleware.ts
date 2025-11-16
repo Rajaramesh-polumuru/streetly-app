@@ -8,16 +8,10 @@ import { AppError } from '../utils/app-error.js';
 import { HTTP_STATUS } from '@/config/constants.js';
 import { env } from '@/config/env.js';
 
-
 /**
  * Global error handler middleware
  */
-export const errorHandler = (
-  error: Error,
-  _req: Request,
-  res: Response,
-  _next: NextFunction
-) => {
+export const errorHandler = (error: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Error:', {
     name: error.name,
     message: error.message,
@@ -33,9 +27,7 @@ export const errorHandler = (
 
     return res
       .status(HTTP_STATUS.BAD_REQUEST)
-      .json(
-        ApiResponse.error('Validation error', HTTP_STATUS.BAD_REQUEST, validationErrors)
-      );
+      .json(ApiResponse.error('Validation error', HTTP_STATUS.BAD_REQUEST, validationErrors));
   }
 
   // Mongoose validation errors
@@ -47,9 +39,7 @@ export const errorHandler = (
 
     return res
       .status(HTTP_STATUS.BAD_REQUEST)
-      .json(
-        ApiResponse.error('Validation error', HTTP_STATUS.BAD_REQUEST, validationErrors)
-      );
+      .json(ApiResponse.error('Validation error', HTTP_STATUS.BAD_REQUEST, validationErrors));
   }
 
   // Mongoose duplicate key error
@@ -68,9 +58,7 @@ export const errorHandler = (
 
   // Custom AppError
   if (error instanceof AppError) {
-    return res
-      .status(error.statusCode)
-      .json(ApiResponse.error(error.message, error.statusCode));
+    return res.status(error.statusCode).json(ApiResponse.error(error.message, error.statusCode));
   }
 
   // JWT errors
@@ -103,7 +91,5 @@ export const errorHandler = (
 export const notFoundHandler = (req: Request, res: Response) => {
   res
     .status(HTTP_STATUS.NOT_FOUND)
-    .json(
-      ApiResponse.error(`Route ${req.originalUrl} not found`, HTTP_STATUS.NOT_FOUND)
-    );
+    .json(ApiResponse.error(`Route ${req.originalUrl} not found`, HTTP_STATUS.NOT_FOUND));
 };

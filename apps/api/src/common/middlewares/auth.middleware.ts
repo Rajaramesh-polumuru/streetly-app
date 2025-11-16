@@ -7,7 +7,6 @@ import { asyncHandler } from '../utils/async-handler.js';
 import { HTTP_STATUS } from '@/config/constants.js';
 import { env } from '@/config/env.js';
 
-
 interface JwtPayload {
   id: string;
   email: string;
