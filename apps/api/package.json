@@ -10,7 +10,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --no-watchman",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.4",
     "morgan": "^1.10.0",
+    "next": "14.2.33",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -43,7 +44,7 @@
     "@types/node": "^20.10.6",
     "@types/supertest": "^6.0.2",
     "eslint": "^8.56.0",
-    "jest": "^29.7.0",
+    "jest": "^25.0.0",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.1",
     "tsx": "^4.7.0",
