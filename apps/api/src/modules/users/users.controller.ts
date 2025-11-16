@@ -29,7 +29,7 @@ export const getUsers = asyncHandler(async (req: Request, res: Response) => {
  * GET /api/v1/users/:id
  */
 export const getUser = asyncHandler(async (req: Request, res: Response) => {
-  const user = await userService.getUserById(req.params.id);
+  const user = await userService.getUserById(req.params.id!);
 
   res.json(ApiResponse.success(user, 'User retrieved successfully'));
 });
@@ -51,7 +51,7 @@ export const createUser = asyncHandler(async (req: Request, res: Response) => {
  * PATCH /api/v1/users/:id
  */
 export const updateUser = asyncHandler(async (req: Request, res: Response) => {
-  const user = await userService.updateUser(req.params.id, req.body);
+  const user = await userService.updateUser(req.params.id!, req.body);
 
   res.json(ApiResponse.success(user, 'User updated successfully'));
 });
@@ -61,7 +61,7 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
  * DELETE /api/v1/users/:id
  */
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-  const result = await userService.deleteUser(req.params.id);
+  const result = await userService.deleteUser(req.params.id!);
 
   res.json(ApiResponse.success(result, result.message));
 });

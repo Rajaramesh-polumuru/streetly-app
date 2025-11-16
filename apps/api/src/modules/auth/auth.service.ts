@@ -34,13 +34,13 @@ export class AuthService {
 
     // Generate tokens
     const accessToken = this.generateAccessToken({
-      id: user._id.toString(),
+      id: (user._id as any).toString(),
       email: user.email,
       role: user.role,
     });
 
     const refreshToken = this.generateRefreshToken({
-      id: user._id.toString(),
+      id: (user._id as any).toString(),
     });
 
     // Remove password from user object
@@ -72,7 +72,7 @@ export class AuthService {
 
       // Generate new access token
       const newAccessToken = this.generateAccessToken({
-        id: user._id.toString(),
+        id: (user._id as any).toString(),
         email: user.email,
         role: user.role,
       });
@@ -91,7 +91,7 @@ export class AuthService {
   private generateAccessToken(payload: { id: string; email: string; role?: string }): string {
     return jwt.sign(payload, env.JWT_SECRET, {
       expiresIn: env.JWT_EXPIRES_IN,
-    });
+    } as jwt.SignOptions);
   }
 
   /**
@@ -100,6 +100,6 @@ export class AuthService {
   private generateRefreshToken(payload: { id: string }): string {
     return jwt.sign(payload, env.JWT_REFRESH_SECRET, {
       expiresIn: env.JWT_REFRESH_EXPIRES_IN,
-    });
+    } as jwt.SignOptions);
   }
 }
