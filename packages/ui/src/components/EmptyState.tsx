@@ -1,6 +1,7 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { FileQuestion, Search, ShoppingBag, Inbox, AlertCircle } from 'lucide-react';
+import React from 'react';
+
 import { cn } from '../lib/utils';
 
 const emptyStateVariants = cva(
@@ -66,7 +67,7 @@ export interface EmptyStateProps
 export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
   ({ className, variant, icon = 'default', title, description, action, ...props }, ref) => {
     const IconComponent =
-      typeof icon === 'string' ? iconMap[icon] || iconMap.default : null;
+      typeof icon === 'string' ? iconMap[icon as keyof typeof iconMap] || iconMap.default : null;
 
     return (
       <div

@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --no-watchman",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "seed": "tsx src/scripts/seed.ts"
   },
   "dependencies": {
     "@repo/types": "*",

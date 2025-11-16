@@ -1,6 +1,7 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
+import React from 'react';
+
 import { cn } from '../lib/utils';
 
 const spinnerVariants = cva(
@@ -88,7 +89,7 @@ export interface SpinnerOverlayProps extends Omit<SpinnerProps, 'centered'> {
 }
 
 export const SpinnerOverlay = React.forwardRef<HTMLDivElement, SpinnerOverlayProps>(
-  ({ className, message, size = 'xl', variant = 'white', ...props }, ref) => {
+  ({ className: _className, message, size = 'xl', variant = 'white', ...props }, ref) => {
     return (
       <div
         ref={ref}

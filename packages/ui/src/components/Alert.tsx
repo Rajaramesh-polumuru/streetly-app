@@ -1,6 +1,7 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { AlertCircle, CheckCircle2, Info, X, XCircle } from 'lucide-react';
+import React from 'react';
+
 import { cn } from '../lib/utils';
 
 const alertVariants = cva(
@@ -158,12 +159,14 @@ Alert.displayName = 'Alert';
 export const AlertTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <h3
     ref={ref}
     className={cn('text-sm font-semibold', className)}
     {...props}
-  />
+  >
+    {children}
+  </h3>
 ));
 
 AlertTitle.displayName = 'AlertTitle';

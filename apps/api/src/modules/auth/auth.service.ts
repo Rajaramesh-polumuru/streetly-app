@@ -1,4 +1,4 @@
-import type { LoginDto } from '@repo/types';
+import type { CreateUserDto, LoginDto } from '@repo/types';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -13,6 +13,49 @@ import { env } from '@/config/env.js';
  */
 export class AuthService {
   constructor(private userRepository: UserRepository) {}
+
+  /**
+   * Register a new user
+   */
+  async register(data: CreateUserDto & { password: string }) {
+    // Check if email already exists
+    const existingUser = await this.userRepository.findByEmail(data.email);
+
+    if (existingUser) {
+      throw new AppError('Email already registered', HTTP_STATUS.CONFLICT);
+    }
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+
+    // Create user
+    const user = await this.userRepository.create({
+      ...data,
+      password: hashedPassword,
+    });
+
+    // Generate tokens
+    const accessToken = this.generateAccessToken({
+      id: (user._id as any).toString(),
+      email: user.email,
+      role: user.role,
+    });
+
+    const refreshToken = this.generateRefreshToken({
+      id: (user._id as any).toString(),
+    });
+
+    // Remove password from user object
+    const userObject = user.toJSON();
+
+    return {
+      user: userObject,
+      tokens: {
+        accessToken,
+        refreshToken,
+      },
+    };
+  }
 
   /**
    * Login user

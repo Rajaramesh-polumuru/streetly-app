@@ -1,5 +1,6 @@
-import React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
+import React from 'react';
+
 import { cn } from '../lib/utils';
 
 /**
@@ -93,12 +94,14 @@ PopoverHeader.displayName = 'PopoverHeader';
 export const PopoverTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <h3
     ref={ref}
     className={cn('text-lg font-semibold text-primary-900', className)}
     {...props}
-  />
+  >
+    {children}
+  </h3>
 ));
 PopoverTitle.displayName = 'PopoverTitle';
 
