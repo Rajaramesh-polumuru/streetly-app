@@ -34,36 +34,42 @@ export default function RegisterPage() {
 
   const onSubmit = (data: RegisterDto) => {
     // Remove confirmPassword before sending to backend
-    const { confirmPassword, ...registerData } = data;
+    const { confirmPassword: _confirmPassword, ...registerData } = data;
     registerMutation.mutate(registerData);
   };
 
   return (
-    <div className="min-h-screen bg-neutral-300 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-primary-600 via-secondary-600 to-primary-600 flex flex-col">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl" />
+      </div>
+
       {/* Header */}
-      <div className="border-b border-neutral-400 bg-white py-4">
+      <div className="relative z-10 border-b border-primary-700 bg-primary-600/80 backdrop-blur-lg py-4">
         <div className="container mx-auto px-4">
           <Link
             href={ROUTES.HOME}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500 shadow-lg shadow-accent-500/30">
               <QrCode className="h-5 w-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-primary-900">{APP_NAME}</span>
+            <span className="text-lg font-bold text-white">{APP_NAME}</span>
           </Link>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-2xl">
           <div className="grid md:grid-cols-5 gap-8">
             {/* Benefits Sidebar */}
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-primary-900 mb-2">Start Your Free Trial</h3>
-                <p className="text-primary-700">Join 50+ restaurants growing with Streetly</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Start Your Free Trial</h3>
+                <p className="text-neutral-300">Join 50+ restaurants growing with Streetly</p>
               </div>
 
               <div className="space-y-4">
@@ -76,20 +82,24 @@ export default function RegisterPage() {
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-100">
-                        <Check className="h-3 w-3 text-accent-600" />
+                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-500/20 border border-accent-500/30">
+                        <Check className="h-3 w-3 text-accent-400" />
                       </div>
                     </div>
-                    <span className="text-sm text-primary-700">{benefit}</span>
+                    <span className="text-sm text-neutral-300">{benefit}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-6">
-                <Badge variant="success" size="md">
+              <div className="pt-6 p-4 rounded-xl bg-accent-500/10 border border-accent-500/20">
+                <Badge
+                  variant="success"
+                  size="md"
+                  className="bg-accent-500 text-white border-accent-400"
+                >
                   <span className="font-semibold">15-20% AOV Increase</span>
                 </Badge>
-                <p className="text-sm text-primary-600 mt-2">
+                <p className="text-sm text-neutral-300 mt-2">
                   Average revenue growth for our customers
                 </p>
               </div>
@@ -97,10 +107,16 @@ export default function RegisterPage() {
 
             {/* Registration Form */}
             <div className="md:col-span-3">
-              <Card variant="elevated" padding="lg">
+              <Card
+                variant="elevated"
+                padding="lg"
+                className="bg-secondary-600/80 backdrop-blur-xl border-secondary-500 shadow-2xl"
+              >
                 <CardHeader className="text-center">
-                  <CardTitle className="text-3xl">Create Your Account</CardTitle>
-                  <CardDescription>Set up your restaurant in minutes</CardDescription>
+                  <CardTitle className="text-3xl text-white">Create Your Account</CardTitle>
+                  <CardDescription className="text-neutral-300">
+                    Set up your restaurant in minutes
+                  </CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -113,6 +129,7 @@ export default function RegisterPage() {
                       placeholder="John Doe"
                       leftIcon={<User className="h-4 w-4" />}
                       error={errors.name?.message}
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('name', {
                         required: 'Full name is required',
                         minLength: {
@@ -131,6 +148,7 @@ export default function RegisterPage() {
                       leftIcon={<Mail className="h-4 w-4" />}
                       error={errors.email?.message}
                       helperText="We'll send your QR codes and reports here"
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('email', {
                         required: 'Email is required',
                         pattern: {
@@ -148,6 +166,7 @@ export default function RegisterPage() {
                       placeholder="Your Restaurant Name"
                       leftIcon={<Building2 className="h-4 w-4" />}
                       error={errors.restaurantName?.message}
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('restaurantName', {
                         required: 'Restaurant name is required',
                       })}
@@ -161,6 +180,7 @@ export default function RegisterPage() {
                       placeholder="+91 98765 43210"
                       leftIcon={<Phone className="h-4 w-4" />}
                       error={errors.phone?.message}
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('phone', {
                         required: 'Phone number is required',
                         pattern: {
@@ -179,6 +199,7 @@ export default function RegisterPage() {
                       leftIcon={<Lock className="h-4 w-4" />}
                       error={errors.password?.message}
                       helperText="Must be at least 8 characters"
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('password', {
                         required: 'Password is required',
                         minLength: {
@@ -200,6 +221,7 @@ export default function RegisterPage() {
                       placeholder="Re-enter your password"
                       leftIcon={<Lock className="h-4 w-4" />}
                       error={errors.confirmPassword?.message}
+                      className="bg-primary-700 border-primary-600 text-white placeholder:text-neutral-500"
                       {...register('confirmPassword', {
                         required: 'Please confirm your password',
                         validate: (value) => value === password || 'Passwords do not match',
@@ -207,13 +229,19 @@ export default function RegisterPage() {
                     />
 
                     {/* Terms and Conditions */}
-                    <div className="text-xs text-primary-600">
+                    <div className="text-xs text-neutral-300">
                       By creating an account, you agree to our{' '}
-                      <Link href="#" className="text-accent-600 hover:underline">
+                      <Link
+                        href="#"
+                        className="text-accent-400 hover:text-accent-300 transition-colors"
+                      >
                         Terms of Service
                       </Link>{' '}
                       and{' '}
-                      <Link href="#" className="text-accent-600 hover:underline">
+                      <Link
+                        href="#"
+                        className="text-accent-400 hover:text-accent-300 transition-colors"
+                      >
                         Privacy Policy
                       </Link>
                       .
@@ -221,8 +249,8 @@ export default function RegisterPage() {
 
                     {/* Error Alert */}
                     {registerMutation.isError && (
-                      <Alert variant="error">
-                        <AlertDescription>
+                      <Alert variant="error" className="bg-error-500/10 border-error-500/30">
+                        <AlertDescription className="text-error-300">
                           {registerMutation.error?.message ||
                             'Registration failed. Please try again.'}
                         </AlertDescription>
@@ -237,6 +265,7 @@ export default function RegisterPage() {
                       fullWidth
                       isLoading={registerMutation.isPending}
                       loadingText="Creating your account..."
+                      className="bg-accent-500 hover:bg-accent-600 shadow-lg shadow-accent-500/30 text-white font-semibold"
                     >
                       Start Free Trial
                     </Button>
@@ -244,19 +273,19 @@ export default function RegisterPage() {
 
                   {/* Divider */}
                   <div className="relative my-6">
-                    <Separator />
-                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-sm text-neutral-600">
+                    <Separator className="bg-primary-600" />
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary-600 px-2 text-sm text-neutral-400">
                       or
                     </span>
                   </div>
 
                   {/* Sign In Link */}
                   <div className="text-center">
-                    <p className="text-sm text-primary-700">
+                    <p className="text-sm text-neutral-300">
                       Already have an account?{' '}
                       <Link
                         href={ROUTES.LOGIN}
-                        className="font-semibold text-accent-600 hover:text-accent-700 transition-colors"
+                        className="font-semibold text-accent-400 hover:text-accent-300 transition-colors"
                       >
                         Sign in
                       </Link>
@@ -269,7 +298,7 @@ export default function RegisterPage() {
               <div className="mt-6 text-center">
                 <Link
                   href={ROUTES.HOME}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-accent-600 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-neutral-300 hover:text-accent-400 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Back to home

@@ -1,4 +1,4 @@
-import type { CreateUserDto, UpdateUserDto } from '@repo/types';
+import type { UpdateUserDto } from '@repo/types';
 
 import { User, type IUser } from './users.model.js';
 
