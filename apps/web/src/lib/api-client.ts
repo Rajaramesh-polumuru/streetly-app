@@ -1,9 +1,5 @@
 import type { ApiResponse, ApiError } from '@repo/types';
-import axios, {
-  type AxiosInstance,
-  type AxiosRequestConfig,
-  type AxiosError,
-} from 'axios';
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosError } from 'axios';
 
 /**
  * API Client class for making HTTP requests
@@ -156,4 +152,3 @@ class ApiClient {
 
 // Export singleton instance
 export const apiClient = new ApiClient();
-

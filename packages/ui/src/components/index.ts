@@ -22,12 +22,7 @@ export type { BadgeProps } from './Badge';
 export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
 
-export {
-  Select,
-  SelectItem,
-  SelectGroup,
-  SelectSeparator
-} from './Select';
+export { Select, SelectItem, SelectGroup, SelectSeparator } from './Select';
 export type { SelectProps } from './Select';
 
 export { Checkbox } from './Checkbox';
@@ -61,7 +56,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-  DialogClose
+  DialogClose,
 } from './Dialog';
 
 export {
@@ -71,7 +66,7 @@ export {
   DrawerHeader,
   DrawerBody,
   DrawerFooter,
-  DrawerClose
+  DrawerClose,
 } from './Drawer';
 export type { DrawerProps } from './Drawer';
 
@@ -85,7 +80,7 @@ export {
   DropdownRadioItem,
   DropdownLabel,
   DropdownSeparator,
-  DropdownShortcut
+  DropdownShortcut,
 } from './Dropdown';
 
 export { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from './Tooltip';
@@ -99,7 +94,7 @@ export {
   PopoverTitle,
   PopoverDescription,
   PopoverFooter,
-  PopoverClose
+  PopoverClose,
 } from './Popover';
 
 export {
@@ -111,7 +106,7 @@ export {
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogAction,
-  AlertDialogCancel
+  AlertDialogCancel,
 } from './AlertDialog';
 
 // Data Display Components

@@ -39,34 +39,31 @@ const statusIndicatorVariants = cva(
   }
 );
 
-const dotVariants = cva(
-  'h-2 w-2 rounded-full',
-  {
-    variants: {
-      variant: {
-        success: 'bg-accent-600',
-        warning: 'bg-warning-600',
-        error: 'bg-error-600',
-        info: 'bg-info-600',
-        neutral: 'bg-neutral-600',
-        pending: 'bg-warning-600',
-        confirmed: 'bg-info-600',
-        preparing: 'bg-accent-600',
-        ready: 'bg-accent-700',
-        served: 'bg-neutral-600',
-        cancelled: 'bg-error-600',
-      },
-      pulse: {
-        true: 'animate-pulse',
-        false: '',
-      },
+const dotVariants = cva('h-2 w-2 rounded-full', {
+  variants: {
+    variant: {
+      success: 'bg-accent-600',
+      warning: 'bg-warning-600',
+      error: 'bg-error-600',
+      info: 'bg-info-600',
+      neutral: 'bg-neutral-600',
+      pending: 'bg-warning-600',
+      confirmed: 'bg-info-600',
+      preparing: 'bg-accent-600',
+      ready: 'bg-accent-700',
+      served: 'bg-neutral-600',
+      cancelled: 'bg-error-600',
     },
-    defaultVariants: {
-      variant: 'neutral',
-      pulse: false,
+    pulse: {
+      true: 'animate-pulse',
+      false: '',
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'neutral',
+    pulse: false,
+  },
+});
 
 export interface StatusIndicatorProps
   extends React.HTMLAttributes<HTMLSpanElement>,
@@ -113,12 +110,7 @@ export const StatusIndicator = React.forwardRef<HTMLSpanElement, StatusIndicator
         className={cn(statusIndicatorVariants({ variant, size, dotPosition }), className)}
         {...props}
       >
-        {showDot && (
-          <span
-            className={cn(dotVariants({ variant, pulse }))}
-            aria-hidden="true"
-          />
-        )}
+        {showDot && <span className={cn(dotVariants({ variant, pulse }))} aria-hidden="true" />}
         {label || children}
       </span>
     );

@@ -150,13 +150,13 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@repo/ui';
   <CardHeader>
     <CardTitle>Order Summary</CardTitle>
   </CardHeader>
-  <CardContent>
-    {/* Content */}
-  </CardContent>
+  <CardContent>{/* Content */}</CardContent>
   <CardFooter>
-    <Button variant="accent" fullWidth>Checkout</Button>
+    <Button variant="accent" fullWidth>
+      Checkout
+    </Button>
   </CardFooter>
-</Card>
+</Card>;
 ```
 
 ### Badge
@@ -187,13 +187,21 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@
     <SelectItem value="mains">Main Course</SelectItem>
     <SelectItem value="desserts">Desserts</SelectItem>
   </SelectContent>
-</Select>
+</Select>;
 ```
 
 ### Dialog
 
 ```tsx
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@repo/ui';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@repo/ui';
 import { Button } from '@repo/ui';
 
 <Dialog>
@@ -203,22 +211,27 @@ import { Button } from '@repo/ui';
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Confirm Order</DialogTitle>
-      <DialogDescription>
-        Are you sure you want to place this order?
-      </DialogDescription>
+      <DialogDescription>Are you sure you want to place this order?</DialogDescription>
     </DialogHeader>
     <DialogFooter>
       <Button variant="outline">Cancel</Button>
       <Button variant="accent">Confirm</Button>
     </DialogFooter>
   </DialogContent>
-</Dialog>
+</Dialog>;
 ```
 
 ### Drawer
 
 ```tsx
-import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter } from '@repo/ui';
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+} from '@repo/ui';
 import { ShoppingCart } from 'lucide-react';
 
 <Drawer position="right">
@@ -229,14 +242,14 @@ import { ShoppingCart } from 'lucide-react';
   </DrawerTrigger>
   <DrawerContent>
     <DrawerHeader>Your Cart</DrawerHeader>
-    <DrawerBody>
-      {/* Cart items */}
-    </DrawerBody>
+    <DrawerBody>{/* Cart items */}</DrawerBody>
     <DrawerFooter>
-      <Button variant="accent" fullWidth>Checkout</Button>
+      <Button variant="accent" fullWidth>
+        Checkout
+      </Button>
     </DrawerFooter>
   </DrawerContent>
-</Drawer>
+</Drawer>;
 ```
 
 ### Skeleton
@@ -311,16 +324,16 @@ import { cn, formatCurrency, formatDate, formatTime, getInitials } from '@repo/u
 const className = cn('px-4 py-2', isActive && 'bg-accent-500');
 
 // Format currency
-formatCurrency(1500) // "₹1,500"
+formatCurrency(1500); // "₹1,500"
 
 // Format date
-formatDate(new Date()) // "16 November 2025"
+formatDate(new Date()); // "16 November 2025"
 
 // Format time
-formatTime(new Date()) // "2:30 PM"
+formatTime(new Date()); // "2:30 PM"
 
 // Get initials
-getInitials("John Doe") // "JD"
+getInitials('John Doe'); // "JD"
 ```
 
 ## Accessibility

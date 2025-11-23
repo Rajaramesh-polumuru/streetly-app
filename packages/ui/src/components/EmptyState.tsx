@@ -4,21 +4,18 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-const emptyStateVariants = cva(
-  'flex flex-col items-center justify-center text-center',
-  {
-    variants: {
-      variant: {
-        default: '',
-        compact: 'py-8',
-        full: 'min-h-[400px] py-16',
-      },
+const emptyStateVariants = cva('flex flex-col items-center justify-center text-center', {
+  variants: {
+    variant: {
+      default: '',
+      compact: 'py-8',
+      full: 'min-h-[400px] py-16',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
 
 const iconMap = {
   search: Search,
@@ -87,9 +84,7 @@ export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
 
         <h3 className="mb-2 text-xl font-bold text-primary-900">{title}</h3>
 
-        {description && (
-          <p className="mb-6 max-w-md text-sm text-neutral-600">{description}</p>
-        )}
+        {description && <p className="mb-6 max-w-md text-sm text-neutral-600">{description}</p>}
 
         {action && <div className="flex flex-col gap-2 sm:flex-row">{action}</div>}
       </div>

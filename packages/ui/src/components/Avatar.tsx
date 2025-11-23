@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { User } from 'lucide-react';
 import React from 'react';
 
-import { cn , getInitials } from '../lib/utils';
+import { cn, getInitials } from '../lib/utils';
 
 const avatarVariants = cva(
   'relative flex shrink-0 overflow-hidden rounded-full transition-all duration-300',
@@ -51,57 +51,56 @@ export interface AvatarProps
  * <Avatar fallback={<UserIcon />} />
  * ```
  */
-export const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  AvatarProps
->(({ className, size, src, alt, name, fallback, online, ...props }, ref) => {
-  const initials = name ? getInitials(name) : null;
+export const Avatar = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
+  ({ className, size, src, alt, name, fallback, online, ...props }, ref) => {
+    const initials = name ? getInitials(name) : null;
 
-  return (
-    <div className="relative inline-block">
-      <AvatarPrimitive.Root
-        ref={ref}
-        className={cn(avatarVariants({ size }), className)}
-        {...props}
-      >
-        <AvatarPrimitive.Image
-          src={src}
-          alt={alt || name}
-          className="h-full w-full object-cover"
-        />
-        <AvatarPrimitive.Fallback
-          className={cn(
-            'flex h-full w-full items-center justify-center bg-primary-100 text-primary-900 font-semibold',
-            {
-              'text-xs': size === 'sm',
-              'text-sm': size === 'md',
-              'text-base': size === 'lg',
-              'text-xl': size === 'xl',
-            }
-          )}
-          delayMs={600}
+    return (
+      <div className="relative inline-block">
+        <AvatarPrimitive.Root
+          ref={ref}
+          className={cn(avatarVariants({ size }), className)}
+          {...props}
         >
-          {fallback || initials || <User className="h-1/2 w-1/2 text-neutral-600" />}
-        </AvatarPrimitive.Fallback>
-      </AvatarPrimitive.Root>
+          <AvatarPrimitive.Image
+            src={src}
+            alt={alt || name}
+            className="h-full w-full object-cover"
+          />
+          <AvatarPrimitive.Fallback
+            className={cn(
+              'flex h-full w-full items-center justify-center bg-primary-100 text-primary-900 font-semibold',
+              {
+                'text-xs': size === 'sm',
+                'text-sm': size === 'md',
+                'text-base': size === 'lg',
+                'text-xl': size === 'xl',
+              }
+            )}
+            delayMs={600}
+          >
+            {fallback || initials || <User className="h-1/2 w-1/2 text-neutral-600" />}
+          </AvatarPrimitive.Fallback>
+        </AvatarPrimitive.Root>
 
-      {online && (
-        <span
-          className={cn(
-            'absolute bottom-0 right-0 block rounded-full border-2 border-white bg-accent-500',
-            {
-              'h-2 w-2': size === 'sm',
-              'h-3 w-3': size === 'md',
-              'h-4 w-4': size === 'lg',
-              'h-6 w-6': size === 'xl',
-            }
-          )}
-          aria-label="Online"
-        />
-      )}
-    </div>
-  );
-});
+        {online && (
+          <span
+            className={cn(
+              'absolute bottom-0 right-0 block rounded-full border-2 border-white bg-accent-500',
+              {
+                'h-2 w-2': size === 'sm',
+                'h-3 w-3': size === 'md',
+                'h-4 w-4': size === 'lg',
+                'h-6 w-6': size === 'xl',
+              }
+            )}
+            aria-label="Online"
+          />
+        )}
+      </div>
+    );
+  }
+);
 
 Avatar.displayName = 'Avatar';
 
@@ -136,20 +135,13 @@ export const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
     const remainingCount = childArray.length - displayChildren.length;
 
     return (
-      <div
-        ref={ref}
-        className={cn('flex items-center -space-x-2', className)}
-        {...props}
-      >
+      <div ref={ref} className={cn('flex items-center -space-x-2', className)} {...props}>
         {displayChildren.map((child, index) =>
           React.isValidElement(child)
             ? React.cloneElement(child, {
                 ...child.props,
                 size,
-                className: cn(
-                  'ring-2 ring-white',
-                  child.props.className
-                ),
+                className: cn('ring-2 ring-white', child.props.className),
                 key: index,
               } as any)
             : child

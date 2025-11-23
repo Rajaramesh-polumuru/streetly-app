@@ -3,26 +3,23 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-const skeletonVariants = cva(
-  'animate-pulse bg-neutral-300 rounded-lg',
-  {
-    variants: {
-      variant: {
-        text: 'h-4 w-full rounded',
-        circle: 'rounded-full',
-        rectangle: 'rounded-lg',
-        card: 'h-64 w-full rounded-xl',
-        avatar: 'h-12 w-12 rounded-full',
-        button: 'h-11 w-32 rounded-lg',
-        input: 'h-11 w-full rounded-lg',
-        table: 'h-96 w-full rounded-lg',
-      },
+const skeletonVariants = cva('animate-pulse bg-neutral-300 rounded-lg', {
+  variants: {
+    variant: {
+      text: 'h-4 w-full rounded',
+      circle: 'rounded-full',
+      rectangle: 'rounded-lg',
+      card: 'h-64 w-full rounded-xl',
+      avatar: 'h-12 w-12 rounded-full',
+      button: 'h-11 w-32 rounded-lg',
+      input: 'h-11 w-full rounded-lg',
+      table: 'h-96 w-full rounded-lg',
     },
-    defaultVariants: {
-      variant: 'text',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'text',
+  },
+});
 
 export interface SkeletonProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -143,11 +140,7 @@ SkeletonText.displayName = 'SkeletonText';
 export const SkeletonCard = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={cn('rounded-xl bg-white p-6 shadow-sm', className)}
-        {...props}
-      >
+      <div ref={ref} className={cn('rounded-xl bg-white p-6 shadow-sm', className)} {...props}>
         <Skeleton variant="text" className="mb-4 h-6 w-3/4" />
         <Skeleton variant="rectangle" className="mb-4 h-32 w-full" />
         <SkeletonText lines={3} />
@@ -189,7 +182,11 @@ export const SkeletonTable = React.forwardRef<HTMLDivElement, SkeletonTableProps
         {Array.from({ length: rows }).map((_, rowIndex) => (
           <div key={`row-${rowIndex}`} className="flex gap-4">
             {Array.from({ length: cols }).map((_, colIndex) => (
-              <Skeleton key={`cell-${rowIndex}-${colIndex}`} variant="text" className="h-4 flex-1" />
+              <Skeleton
+                key={`cell-${rowIndex}-${colIndex}`}
+                variant="text"
+                className="h-4 flex-1"
+              />
             ))}
           </div>
         ))}

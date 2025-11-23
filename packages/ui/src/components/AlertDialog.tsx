@@ -95,11 +95,7 @@ export const AlertDialogHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col space-y-2 text-left', className)}
-    {...props}
-  />
+  <div ref={ref} className={cn('flex flex-col space-y-2 text-left', className)} {...props} />
 ));
 AlertDialogHeader.displayName = 'AlertDialogHeader';
 

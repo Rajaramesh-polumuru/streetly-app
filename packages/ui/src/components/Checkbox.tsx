@@ -4,7 +4,8 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-export interface CheckboxProps extends Omit<React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>, 'children'> {
+export interface CheckboxProps
+  extends Omit<React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>, 'children'> {
   /** Label for the checkbox */
   label?: string;
   /** Error message to display */
@@ -76,9 +77,7 @@ export const Checkbox = React.forwardRef<
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'data-[state=checked]:bg-accent-500 data-[state=checked]:border-accent-500 data-[state=checked]:text-white',
-              error
-                ? 'border-error-500'
-                : 'border-neutral-400 hover:border-neutral-500',
+              error ? 'border-error-500' : 'border-neutral-400 hover:border-neutral-500',
               className
             )}
             aria-invalid={error ? 'true' : 'false'}
@@ -101,7 +100,11 @@ export const Checkbox = React.forwardRef<
               )}
             >
               {label}
-              {required && <span className="ml-1 text-error-500" aria-label="required">*</span>}
+              {required && (
+                <span className="ml-1 text-error-500" aria-label="required">
+                  *
+                </span>
+              )}
             </label>
           )}
         </div>
@@ -117,10 +120,7 @@ export const Checkbox = React.forwardRef<
         )}
 
         {!error && helperText && (
-          <p
-            id={`${checkboxId}-helper`}
-            className="mt-2 text-sm text-neutral-600"
-          >
+          <p id={`${checkboxId}-helper`} className="mt-2 text-sm text-neutral-600">
             {helperText}
           </p>
         )}

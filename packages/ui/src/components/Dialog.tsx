@@ -76,7 +76,8 @@ DialogOverlay.displayName = 'DialogOverlay';
  *
  * Main content container for the dialog.
  */
-export interface DialogContentProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+export interface DialogContentProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
   /** Whether to show the close button */
   showClose?: boolean;
   /** Max width of dialog */
@@ -134,16 +135,11 @@ DialogContent.displayName = 'DialogContent';
  *
  * Header section of the dialog.
  */
-export const DialogHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col space-y-2 text-left', className)}
-    {...props}
-  />
-));
+export const DialogHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('flex flex-col space-y-2 text-left', className)} {...props} />
+  )
+);
 DialogHeader.displayName = 'DialogHeader';
 
 /**
@@ -151,16 +147,15 @@ DialogHeader.displayName = 'DialogHeader';
  *
  * Footer section of the dialog for actions.
  */
-export const DialogFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)}
-    {...props}
-  />
-));
+export const DialogFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)}
+      {...props}
+    />
+  )
+);
 DialogFooter.displayName = 'DialogFooter';
 
 /**

@@ -50,18 +50,21 @@ export interface LabelProps
  * </Label>
  * ```
  */
-export const Label = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  LabelProps
->(({ className, variant, size, required, children, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={cn(labelVariants({ variant, size }), className)}
-    {...props}
-  >
-    {children}
-    {required && <span className="ml-1 text-error-500" aria-label="required">*</span>}
-  </LabelPrimitive.Root>
-));
+export const Label = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>, LabelProps>(
+  ({ className, variant, size, required, children, ...props }, ref) => (
+    <LabelPrimitive.Root
+      ref={ref}
+      className={cn(labelVariants({ variant, size }), className)}
+      {...props}
+    >
+      {children}
+      {required && (
+        <span className="ml-1 text-error-500" aria-label="required">
+          *
+        </span>
+      )}
+    </LabelPrimitive.Root>
+  )
+);
 
 Label.displayName = 'Label';

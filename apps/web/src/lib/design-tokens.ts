@@ -150,48 +150,48 @@ export const colors = {
 export const typography = {
   fontSize: {
     xs: {
-      size: '0.75rem',      // 12px
-      lineHeight: '1rem',   // 16px
+      size: '0.75rem', // 12px
+      lineHeight: '1rem', // 16px
       letterSpacing: '0.02em',
     },
     sm: {
-      size: '0.875rem',     // 14px
+      size: '0.875rem', // 14px
       lineHeight: '1.25rem', // 20px
       letterSpacing: '0.01em',
     },
     base: {
-      size: '1rem',         // 16px
+      size: '1rem', // 16px
       lineHeight: '1.5rem', // 24px
       letterSpacing: '0',
     },
     lg: {
-      size: '1.125rem',     // 18px
+      size: '1.125rem', // 18px
       lineHeight: '1.75rem', // 28px
       letterSpacing: '0',
     },
     xl: {
-      size: '1.25rem',      // 20px
+      size: '1.25rem', // 20px
       lineHeight: '1.75rem', // 28px
       letterSpacing: '-0.01em',
     },
     '2xl': {
-      size: '1.5rem',       // 24px
-      lineHeight: '2rem',   // 32px
+      size: '1.5rem', // 24px
+      lineHeight: '2rem', // 32px
       letterSpacing: '-0.01em',
     },
     '3xl': {
-      size: '1.875rem',     // 30px
+      size: '1.875rem', // 30px
       lineHeight: '2.25rem', // 36px
       letterSpacing: '-0.02em',
     },
     '4xl': {
-      size: '2.25rem',      // 36px
+      size: '2.25rem', // 36px
       lineHeight: '2.5rem', // 40px
       letterSpacing: '-0.02em',
     },
     '5xl': {
-      size: '3rem',         // 48px
-      lineHeight: '1',      // 48px
+      size: '3rem', // 48px
+      lineHeight: '1', // 48px
       letterSpacing: '-0.02em',
     },
   },
@@ -214,14 +214,14 @@ export const typography = {
  */
 
 export const spacing = {
-  xs: '0.25rem',  // 4px
-  sm: '0.5rem',   // 8px
-  md: '1rem',     // 16px
-  lg: '1.5rem',   // 24px
-  xl: '2rem',     // 32px
-  '2xl': '3rem',  // 48px
-  '3xl': '4rem',  // 64px
-  '4xl': '6rem',  // 96px
+  xs: '0.25rem', // 4px
+  sm: '0.5rem', // 8px
+  md: '1rem', // 16px
+  lg: '1.5rem', // 24px
+  xl: '2rem', // 32px
+  '2xl': '3rem', // 48px
+  '3xl': '4rem', // 64px
+  '4xl': '6rem', // 96px
 } as const;
 
 /**
@@ -249,12 +249,12 @@ export const spacingPx = {
 
 export const borderRadius = {
   none: '0',
-  sm: '0.25rem',    // 4px
+  sm: '0.25rem', // 4px
   DEFAULT: '0.5rem', // 8px
-  md: '0.75rem',    // 12px
-  lg: '1rem',       // 16px
-  xl: '1.5rem',     // 24px
-  full: '9999px',   // Fully rounded (pills, circles)
+  md: '0.75rem', // 12px
+  lg: '1rem', // 16px
+  xl: '1.5rem', // 24px
+  full: '9999px', // Fully rounded (pills, circles)
 } as const;
 
 // =============================================================================
@@ -329,10 +329,10 @@ export const animations = {
  */
 
 export const breakpoints = {
-  sm: '640px',   // Small devices
-  md: '768px',   // Tablets
-  lg: '1024px',  // Desktops
-  xl: '1280px',  // Large desktops
+  sm: '640px', // Small devices
+  md: '768px', // Tablets
+  lg: '1024px', // Desktops
+  xl: '1280px', // Large desktops
   '2xl': '1536px', // Extra large desktops
 } as const;
 
@@ -365,18 +365,18 @@ export const zIndex = {
  */
 export const buttonSizes = {
   sm: {
-    height: '2.25rem',  // 36px
+    height: '2.25rem', // 36px
     padding: '0 0.75rem', // 12px
     fontSize: typography.fontSize.sm.size,
   },
   md: {
-    height: '2.75rem',  // 44px
+    height: '2.75rem', // 44px
     padding: '0 1.25rem', // 20px
     fontSize: typography.fontSize.base.size,
   },
   lg: {
-    height: '3.5rem',   // 56px
-    padding: '0 2rem',  // 32px
+    height: '3.5rem', // 56px
+    padding: '0 2rem', // 32px
     fontSize: typography.fontSize.lg.size,
   },
 } as const;
@@ -386,17 +386,17 @@ export const buttonSizes = {
  */
 export const inputSizes = {
   sm: {
-    height: '2.25rem',  // 36px
+    height: '2.25rem', // 36px
     padding: '0.5rem 0.75rem',
     fontSize: typography.fontSize.sm.size,
   },
   md: {
-    height: '3rem',     // 48px
+    height: '3rem', // 48px
     padding: '0.75rem 1rem',
     fontSize: typography.fontSize.base.size,
   },
   lg: {
-    height: '3.5rem',   // 56px
+    height: '3.5rem', // 56px
     padding: '1rem 1.25rem',
     fontSize: typography.fontSize.lg.size,
   },
@@ -407,12 +407,12 @@ export const inputSizes = {
  * Maps order statuses to appropriate colors
  */
 export const orderStatusColors = {
-  PENDING: colors.warning[500],      // Amber
-  CONFIRMED: colors.info[500],       // Blue
-  PREPARING: colors.accent[500],     // Green
-  READY: colors.accent[600],         // Darker green
-  SERVED: colors.neutral[600],       // Gray
-  CANCELLED: colors.error[500],      // Red
+  PENDING: colors.warning[500], // Amber
+  CONFIRMED: colors.info[500], // Blue
+  PREPARING: colors.accent[500], // Green
+  READY: colors.accent[600], // Darker green
+  SERVED: colors.neutral[600], // Gray
+  CANCELLED: colors.error[500], // Red
 } as const;
 
 // =============================================================================

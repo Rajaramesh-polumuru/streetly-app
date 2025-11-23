@@ -114,11 +114,7 @@ export function timeElapsed(date: Date | string): string {
  * @param suffix - Suffix to add (default: "...")
  * @returns Truncated text
  */
-export function truncate(
-  text: string,
-  maxLength: number,
-  suffix: string = '...'
-): string {
+export function truncate(text: string, maxLength: number, suffix: string = '...'): string {
   if (text.length <= maxLength) return text;
   return text.substring(0, maxLength - suffix.length) + suffix;
 }

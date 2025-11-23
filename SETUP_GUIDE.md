@@ -49,6 +49,7 @@ npm run docker:up
 ```
 
 This will start:
+
 - ✅ MongoDB on `localhost:27017`
 - ✅ API on `localhost:5000`
 - ✅ Web on `localhost:3000`
@@ -92,6 +93,7 @@ CORS_ORIGIN=http://localhost:3000
 ```
 
 **Generate secure secrets:**
+
 ```bash
 openssl rand -base64 32
 ```
@@ -107,11 +109,13 @@ NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
 After setup, verify everything works:
 
 ### 1. Check API Health
+
 ```bash
 curl http://localhost:5000/health
 ```
 
 Expected response:
+
 ```json
 {
   "status": "ok",
@@ -122,26 +126,31 @@ Expected response:
 ```
 
 ### 2. Check Frontend
+
 Open browser: http://localhost:3000
 
 You should see the landing page.
 
 ### 3. Test API Endpoint
+
 ```bash
 curl http://localhost:5000/api/v1/users
 ```
 
 ### 4. Run Tests
+
 ```bash
 npm test
 ```
 
 ### 5. Run Linting
+
 ```bash
 npm run lint
 ```
 
 ### 6. Run Type Check
+
 ```bash
 npm run type-check
 ```
@@ -151,6 +160,7 @@ npm run type-check
 ### Issue: MongoDB Connection Failed
 
 **Solution:**
+
 1. Ensure MongoDB is running: `mongod --version`
 2. Check connection string in `apps/api/.env`
 3. For Docker: Ensure containers are running: `docker ps`
@@ -158,6 +168,7 @@ npm run type-check
 ### Issue: Port Already in Use
 
 **Solution:**
+
 ```bash
 # Kill process on port 3000
 lsof -ti:3000 | xargs kill -9
@@ -169,6 +180,7 @@ lsof -ti:5000 | xargs kill -9
 ### Issue: npm install fails
 
 **Solution:**
+
 ```bash
 # Clear npm run cache
 npm run store prune
@@ -181,6 +193,7 @@ npm install
 ### Issue: TypeScript errors
 
 **Solution:**
+
 ```bash
 # Build shared packages first
 npm run --workspace= @repo/types build
@@ -232,6 +245,7 @@ npm run --workspace= web test
 1. ✅ **Create your first user:**
    - Navigate to http://localhost:3000/auth/login
    - Use the registration flow (to be implemented) or create via API:
+
    ```bash
    curl -X POST http://localhost:5000/api/v1/users \
      -H "Content-Type: application/json" \
@@ -245,7 +259,7 @@ npm run --workspace= web test
 2. ✅ **Explore the API:**
    - Health: http://localhost:5000/health
    - Users endpoint: http://localhost:5000/api/v1/users
-   - Auth endpoints: http://localhost:5000/api/v1/auth/*
+   - Auth endpoints: http://localhost:5000/api/v1/auth/\*
 
 3. ✅ **Start building features:**
    - Read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
@@ -300,4 +314,3 @@ docker exec -it mern-mongo mongosh
 ---
 
 **Happy Coding! 🎉**
-
