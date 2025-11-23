@@ -301,7 +301,7 @@ export default function Home() {
                 )}
                 <Card
                   variant="outlined"
-                  className="relative z-10 bg-secondary-700 border-secondary-600"
+                  className="relative z-10 bg-secondary-700 border-secondary-600 h-full"
                 >
                   <CardHeader className="text-center">
                     <div className="mb-4 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-500 text-white shadow-lg shadow-accent-500/30">
@@ -439,9 +439,14 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="py-20 md:py-32 bg-secondary-600">
         <Container maxWidth="lg">
-          <Card variant="elevated" className="overflow-hidden border-0">
-            <div className="bg-gradient-to-r from-accent-600 to-accent-500 p-12 text-center text-white">
-              <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Restaurant?</h2>
+          <Card
+            variant="elevated"
+            className="overflow-hidden border-0 bg-gradient-to-r from-accent-600 to-accent-500"
+          >
+            <div className="p-12 text-center text-white">
+              <h2 className="text-4xl font-bold mb-4 text-white">
+                Ready to Transform Your Restaurant?
+              </h2>
               <p className="text-xl mb-8 text-accent-50">
                 Join 50+ restaurants already growing with Streetly. Start your 14-day free trial
                 today.
