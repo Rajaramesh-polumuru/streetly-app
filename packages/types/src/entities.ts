@@ -6,6 +6,8 @@ export interface User {
   email: string;
   name: string;
   role?: 'user' | 'admin';
+  restaurantName?: string;
+  phone?: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -1,4 +1,4 @@
-import { createUserSchema, loginSchema } from '@repo/types';
+import { createUserFromRegisterSchema, loginSchema } from '@repo/types';
 import { Router } from 'express';
 
 import * as authController from './auth.controller.js';
@@ -11,7 +11,12 @@ const router = Router();
 /**
  * Auth routes with rate limiting
  */
-router.post('/register', authRateLimiter, validate(createUserSchema), authController.register);
+router.post(
+  '/register',
+  authRateLimiter,
+  validate(createUserFromRegisterSchema),
+  authController.register
+);
 
 router.post('/login', authRateLimiter, validate(loginSchema), authController.login);
 

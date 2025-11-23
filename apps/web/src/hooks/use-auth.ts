@@ -1,4 +1,4 @@
-import type { CreateUserDto, LoginDto, AuthResponse } from '@repo/types';
+import type { RegisterDto, LoginDto, AuthResponse, ApiResponse } from '@repo/types';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
@@ -14,9 +14,12 @@ export function useRegister() {
   const setAuth = useAuthStore((state) => state.setAuth);
 
   return useMutation({
-    mutationFn: async (data: CreateUserDto & { password: string }) => {
-      const response = await apiClient.post<AuthResponse>('/auth/register', data);
-      return response.data!;
+    mutationFn: async (data: Omit<RegisterDto, 'confirmPassword'>) => {
+      const response = await apiClient.post<ApiResponse<AuthResponse>>('/auth/register', data);
+      if (!response.data?.data) {
+        throw new Error('Registration failed');
+      }
+      return response.data.data;
     },
     onSuccess: (data) => {
       setAuth(data.user, data.tokens);
@@ -34,8 +37,11 @@ export function useLogin() {
 
   return useMutation({
     mutationFn: async (data: LoginDto) => {
-      const response = await apiClient.post<AuthResponse>('/auth/login', data);
-      return response.data!;
+      const response = await apiClient.post<ApiResponse<AuthResponse>>('/auth/login', data);
+      if (!response.data?.data) {
+        throw new Error('Login failed');
+      }
+      return response.data.data;
     },
     onSuccess: (data) => {
       setAuth(data.user, data.tokens);
