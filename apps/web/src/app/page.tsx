@@ -62,12 +62,19 @@ export default function Home() {
 
             <div className="flex items-center gap-3">
               <Link href={ROUTES.LOGIN}>
-                <Button variant="ghost" size="md" className="text-white hover:text-accent-500">
+                <Button
+                  size="md"
+                  className="bg-transparent text-white hover:text-accent-400 hover:bg-secondary-500/50 transition-all duration-300 font-medium"
+                >
                   Sign In
                 </Button>
               </Link>
               <Link href={ROUTES.REGISTER}>
-                <Button variant="accent" size="md">
+                <Button
+                  variant="accent"
+                  size="md"
+                  className="bg-accent-500 hover:bg-accent-600 shadow-lg shadow-accent-500/30 font-semibold"
+                >
                   Get Started
                 </Button>
               </Link>
@@ -107,15 +114,19 @@ export default function Home() {
 
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={ROUTES.REGISTER}>
-                  <Button variant="accent" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
+                  <Button
+                    variant="accent"
+                    size="lg"
+                    rightIcon={<ArrowRight className="h-5 w-5" />}
+                    className="bg-accent-500 hover:bg-accent-600 shadow-xl shadow-accent-500/30 font-semibold"
+                  >
                     Start Free Trial
                   </Button>
                 </Link>
                 <Link href="#how-it-works">
                   <Button
-                    variant="outline"
                     size="lg"
-                    className="border-neutral-300 text-white hover:bg-white/10"
+                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-600 transition-all duration-300 font-semibold"
                   >
                     See How It Works
                   </Button>
@@ -311,7 +322,12 @@ export default function Home() {
 
           <div className="mt-16 text-center">
             <Link href={ROUTES.REGISTER}>
-              <Button variant="accent" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
+              <Button
+                variant="accent"
+                size="lg"
+                rightIcon={<ArrowRight className="h-5 w-5" />}
+                className="bg-accent-500 hover:bg-accent-600 shadow-xl shadow-accent-500/30 font-semibold"
+              >
                 Start Your Free Trial
               </Button>
             </Link>
@@ -373,13 +389,12 @@ export default function Home() {
                   </ul>
                   <Link href={ROUTES.REGISTER}>
                     <Button
-                      variant={plan.recommended ? 'accent' : 'outline'}
                       size="lg"
                       fullWidth
                       className={
-                        !plan.recommended
-                          ? 'border-accent-500 text-accent-400 hover:bg-accent-500/10'
-                          : ''
+                        plan.recommended
+                          ? 'bg-accent-500 hover:bg-accent-600 shadow-lg shadow-accent-500/30 text-white font-semibold'
+                          : 'bg-transparent border-2 border-accent-500 text-accent-400 hover:bg-accent-500 hover:text-white transition-all duration-300 font-semibold'
                       }
                     >
                       Get Started
