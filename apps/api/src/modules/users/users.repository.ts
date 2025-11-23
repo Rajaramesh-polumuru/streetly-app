@@ -41,7 +41,14 @@ export class UserRepository {
   /**
    * Create a new user
    */
-  async create(data: CreateUserDto & { password: string }): Promise<IUser> {
+  async create(data: {
+    email: string;
+    password: string;
+    name: string;
+    role?: 'user' | 'admin';
+    restaurantName?: string;
+    phone?: string;
+  }): Promise<IUser> {
     return User.create(data);
   }
 

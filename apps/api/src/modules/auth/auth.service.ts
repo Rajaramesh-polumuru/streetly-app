@@ -1,4 +1,4 @@
-import type { CreateUserDto, LoginDto } from '@repo/types';
+import type { LoginDto } from '@repo/types';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -17,7 +17,13 @@ export class AuthService {
   /**
    * Register a new user
    */
-  async register(data: CreateUserDto & { password: string }) {
+  async register(data: {
+    email: string;
+    password: string;
+    name: string;
+    restaurantName?: string;
+    phone?: string;
+  }) {
     // Check if email already exists
     const existingUser = await this.userRepository.findByEmail(data.email);
 

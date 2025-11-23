@@ -33,7 +33,9 @@ export default function RegisterPage() {
   const password = watch('password');
 
   const onSubmit = (data: RegisterDto) => {
-    registerMutation.mutate(data);
+    // Remove confirmPassword before sending to backend
+    const { confirmPassword, ...registerData } = data;
+    registerMutation.mutate(registerData);
   };
 
   return (
