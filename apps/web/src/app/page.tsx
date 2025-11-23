@@ -394,9 +394,9 @@ export default function Home() {
                 </Link>
                 <Link href={ROUTES.LOGIN}>
                   <Button
-                    variant="outline"
+                    variant="secondary"
                     size="lg"
-                    className="border-white text-white hover:bg-white/10"
+                    className="bg-white text-primary-900 hover:bg-neutral-100 border-0"
                   >
                     Sign In
                   </Button>

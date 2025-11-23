@@ -15,7 +15,7 @@
  * Brand Color Palette (60-30-10 Rule)
  * - Primary (#222831): 60% usage - main backgrounds, headers, primary text
  * - Secondary (#393E46): 30% usage - cards, secondary surfaces, secondary text
- * - Accent (#10B981): 10% usage - CTAs, highlights, success states, active indicators
+ * - Accent (#00ADB5): 10% usage - CTAs, highlights, success states, active indicators
  * - Neutral (#EEEEEE): backgrounds, disabled states
  */
 
@@ -50,19 +50,19 @@ export const colors = {
     900: '#14161a',
   },
 
-  // Accent Color - Emerald Green (#10B981) - 10% usage (CTAs, Success, Highlights)
+  // Accent Color - Cyan (#00ADB5) - 10% usage (CTAs, Success, Highlights)
   accent: {
-    DEFAULT: '#10B981',
-    50: '#ecfdf5',
-    100: '#d1fae5',
-    200: '#a7f3d0',
-    300: '#6ee7b7',
-    400: '#34d399',
-    500: '#10B981', // Main accent color
-    600: '#059669',
-    700: '#047857',
-    800: '#065f46',
-    900: '#064e3b',
+    DEFAULT: '#00ADB5',
+    50: '#e6f9fb',
+    100: '#ccf3f7',
+    200: '#99e7ef',
+    300: '#66dbe7',
+    400: '#33cfdf',
+    500: '#00ADB5', // Main accent color
+    600: '#009aa1',
+    700: '#007379',
+    800: '#004d51',
+    900: '#002629',
   },
 
   // Neutral Color - Light Gray (#EEEEEE)
@@ -82,17 +82,17 @@ export const colors = {
 
   // Semantic Colors for States
   success: {
-    DEFAULT: '#10B981',
-    50: '#ecfdf5',
-    100: '#d1fae5',
-    200: '#a7f3d0',
-    300: '#6ee7b7',
-    400: '#34d399',
-    500: '#10B981',
-    600: '#059669',
-    700: '#047857',
-    800: '#065f46',
-    900: '#064e3b',
+    DEFAULT: '#00ADB5',
+    50: '#e6f9fb',
+    100: '#ccf3f7',
+    200: '#99e7ef',
+    300: '#66dbe7',
+    400: '#33cfdf',
+    500: '#00ADB5',
+    600: '#009aa1',
+    700: '#007379',
+    800: '#004d51',
+    900: '#002629',
   },
 
   warning: {
