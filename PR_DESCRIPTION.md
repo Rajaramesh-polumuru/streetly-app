@@ -7,7 +7,9 @@ This PR transforms the MERN monorepo into **Streetly**, a production-ready B2B S
 ## 📦 What's Included
 
 ### 1. **Complete Design System**
+
 #### Tailwind Configuration (`apps/web/tailwind.config.ts`)
+
 - ✅ **60-30-10 Color Palette** following Material Design 3
   - Primary (#222831) - 60% usage
   - Secondary (#393E46) - 30% usage
@@ -20,6 +22,7 @@ This PR transforms the MERN monorepo into **Streetly**, a production-ready B2B S
 - ✅ Installed plugins: @tailwindcss/forms, @tailwindcss/typography
 
 #### Global Styles (`apps/web/src/app/globals.css`)
+
 - ✅ CSS custom properties for all colors
 - ✅ Responsive typography with proper line heights
 - ✅ Accessibility-focused focus states (WCAG 2.1 Level AA)
@@ -27,6 +30,7 @@ This PR transforms the MERN monorepo into **Streetly**, a production-ready B2B S
 - ✅ Utility classes (line-clamp, aspect-ratios, glass morphism)
 
 #### Design Tokens (`apps/web/src/lib/design-tokens.ts`)
+
 - ✅ TypeScript constants for all design values
 - ✅ Order status color mappings
 - ✅ Button and input size configurations
@@ -39,36 +43,44 @@ This PR transforms the MERN monorepo into **Streetly**, a production-ready B2B S
 **26+ Production-Ready Components** with full accessibility:
 
 #### Core Components (4)
+
 - **Button** - 7 variants, loading states, icons, ButtonGroup, IconButton
 - **Input** - Labels, errors, helper text, left/right icons
 - **Card** - 3 variants (default, elevated, outlined) with sub-components
 - **Badge** - Order status variants with dot indicators
 
 #### Form Components (6)
+
 - Textarea, Select (Radix UI), Checkbox, Radio, Switch, Label
 
 #### Feedback Components (3)
+
 - **Skeleton** - 8 variants for loading states
 - **Spinner** - With overlay and button variants
 - **Alert** - 4 variants (success, warning, error, info)
 
 #### Overlay Components (6)
+
 - Dialog, Drawer (4 positions), Dropdown, Tooltip, Popover, AlertDialog
 
 #### Data Display (4)
+
 - **Avatar** - With fallback initials and AvatarGroup
 - EmptyState, StatusIndicator, Separator
 
 #### Layout Components (3)
+
 - Container, Stack (HStack/VStack), Grid (responsive)
 
 #### Utilities (`packages/ui/src/lib/utils.ts`)
+
 - `cn()` - className merger
 - `formatCurrency()` - Indian Rupee formatting
 - `formatDate()`, `formatTime()`, `timeElapsed()`
 - `debounce()`, `throttle()`, `getInitials()`
 
 **Component Features:**
+
 - ✅ Full TypeScript support
 - ✅ WCAG 2.1 Level AA accessible
 - ✅ Keyboard navigation
@@ -103,6 +115,7 @@ Complete SaaS landing page with:
 ### 4. **Authentication Pages**
 
 #### Sign In (`apps/web/src/app/auth/login/page.tsx`)
+
 - Clean, centered form with elevation
 - Email & password inputs with icons
 - Form validation (react-hook-form)
@@ -111,6 +124,7 @@ Complete SaaS landing page with:
 - "Forgot password" and "Sign up" links
 
 #### Sign Up (`apps/web/src/app/auth/register/page.tsx`)
+
 - Two-column layout (benefits sidebar + form)
 - 7 validated input fields:
   - Name, Email, Restaurant Name, Phone
@@ -141,11 +155,13 @@ QUERY_KEYS: Extended for new entities
 ## 🎯 Design Principles
 
 ### **60-30-10 Color Rule**
+
 - ✅ Primary (#222831): Headers, text, dark backgrounds (60%)
 - ✅ Secondary (#393E46): Cards, sections (30%)
 - ✅ Accent (#10B981): CTAs, highlights (10% - used sparingly!)
 
 ### **Accessibility (WCAG 2.1 Level AA)**
+
 - ✅ Keyboard navigation
 - ✅ Screen reader support (ARIA)
 - ✅ Focus indicators
@@ -154,6 +170,7 @@ QUERY_KEYS: Extended for new entities
 - ✅ Semantic HTML
 
 ### **Responsive Design**
+
 - ✅ Mobile-first approach
 - ✅ Breakpoints: sm (640), md (768), lg (1024), xl (1280), 2xl (1536)
 - ✅ Touch-friendly interactions
@@ -163,6 +180,7 @@ QUERY_KEYS: Extended for new entities
 ## 📊 Technical Stack
 
 **Frontend:**
+
 - Next.js 14 with App Router
 - TypeScript
 - Tailwind CSS (with custom config)
@@ -170,11 +188,13 @@ QUERY_KEYS: Extended for new entities
 - Lucide React icons
 
 **UI Library:**
+
 - Class Variance Authority (CVA)
 - Radix UI primitives
 - clsx + tailwind-merge
 
 **Monorepo:**
+
 - Turborepo
 - Shared @repo/ui package
 - Shared @repo/types package
@@ -209,6 +229,7 @@ QUERY_KEYS: Extended for new entities
 ## 📂 Files Changed
 
 ### New Files
+
 - `apps/web/src/lib/design-tokens.ts` - TypeScript design tokens
 - `apps/web/src/app/auth/register/page.tsx` - Sign-up page
 - `packages/ui/README.md` - Comprehensive documentation
@@ -216,6 +237,7 @@ QUERY_KEYS: Extended for new entities
 - 22 new UI components in `packages/ui/src/components/`
 
 ### Modified Files
+
 - `apps/web/tailwind.config.ts` - Complete design system
 - `apps/web/src/app/globals.css` - Global styles and utilities
 - `apps/web/src/app/page.tsx` - Streetly landing page
@@ -243,6 +265,7 @@ QUERY_KEYS: Extended for new entities
 ## 🎨 Visual Preview
 
 **Landing Page:**
+
 - Hero with QR code mockup
 - Feature cards with hover effects
 - Pricing comparison table
@@ -250,6 +273,7 @@ QUERY_KEYS: Extended for new entities
 - Gradient CTA sections
 
 **Authentication:**
+
 - Clean forms with validation
 - Error states with animations
 - Loading spinners
@@ -278,6 +302,7 @@ After merging this PR, you can proceed with:
 ---
 
 **Review Checklist:**
+
 - [ ] Design system colors match specification
 - [ ] All components are accessible
 - [ ] Landing page reflects restaurant focus

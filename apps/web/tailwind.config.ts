@@ -121,11 +121,11 @@ const config: Config = {
 
       // Typography Scale (Major Third - 1.250)
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
-        'base': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+        xs: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+        sm: ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
+        base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
+        lg: ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0' }],
+        xl: ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
         '2xl': ['1.5rem', { lineHeight: '2rem', letterSpacing: '-0.01em' }],
         '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
         '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.02em' }],
@@ -134,36 +134,36 @@ const config: Config = {
 
       // Spacing Scale (4px base)
       spacing: {
-        'xs': '0.25rem',    // 4px
-        'sm': '0.5rem',     // 8px
-        'md': '1rem',       // 16px
-        'lg': '1.5rem',     // 24px
-        'xl': '2rem',       // 32px
-        '2xl': '3rem',      // 48px
-        '3xl': '4rem',      // 64px
-        '4xl': '6rem',      // 96px
+        xs: '0.25rem', // 4px
+        sm: '0.5rem', // 8px
+        md: '1rem', // 16px
+        lg: '1.5rem', // 24px
+        xl: '2rem', // 32px
+        '2xl': '3rem', // 48px
+        '3xl': '4rem', // 64px
+        '4xl': '6rem', // 96px
       },
 
       // Border Radius
       borderRadius: {
-        'none': '0',
-        'sm': '0.25rem',    // 4px
-        'DEFAULT': '0.5rem', // 8px
-        'md': '0.75rem',    // 12px
-        'lg': '1rem',       // 16px
-        'xl': '1.5rem',     // 24px
-        'full': '9999px',
+        none: '0',
+        sm: '0.25rem', // 4px
+        DEFAULT: '0.5rem', // 8px
+        md: '0.75rem', // 12px
+        lg: '1rem', // 16px
+        xl: '1.5rem', // 24px
+        full: '9999px',
       },
 
       // Shadows (Elevation System)
       boxShadow: {
-        'xs': '0 1px 2px 0 rgba(34, 40, 49, 0.05)',
-        'sm': '0 1px 3px 0 rgba(34, 40, 49, 0.1), 0 1px 2px -1px rgba(34, 40, 49, 0.1)',
-        'DEFAULT': '0 4px 6px -1px rgba(34, 40, 49, 0.1), 0 2px 4px -2px rgba(34, 40, 49, 0.1)',
-        'md': '0 10px 15px -3px rgba(34, 40, 49, 0.1), 0 4px 6px -4px rgba(34, 40, 49, 0.1)',
-        'lg': '0 20px 25px -5px rgba(34, 40, 49, 0.1), 0 8px 10px -6px rgba(34, 40, 49, 0.1)',
-        'xl': '0 25px 50px -12px rgba(34, 40, 49, 0.25)',
-        'inner': 'inset 0 2px 4px 0 rgba(34, 40, 49, 0.05)',
+        xs: '0 1px 2px 0 rgba(34, 40, 49, 0.05)',
+        sm: '0 1px 3px 0 rgba(34, 40, 49, 0.1), 0 1px 2px -1px rgba(34, 40, 49, 0.1)',
+        DEFAULT: '0 4px 6px -1px rgba(34, 40, 49, 0.1), 0 2px 4px -2px rgba(34, 40, 49, 0.1)',
+        md: '0 10px 15px -3px rgba(34, 40, 49, 0.1), 0 4px 6px -4px rgba(34, 40, 49, 0.1)',
+        lg: '0 20px 25px -5px rgba(34, 40, 49, 0.1), 0 8px 10px -6px rgba(34, 40, 49, 0.1)',
+        xl: '0 25px 50px -12px rgba(34, 40, 49, 0.25)',
+        inner: 'inset 0 2px 4px 0 rgba(34, 40, 49, 0.05)',
       },
 
       // Animation
@@ -196,16 +196,13 @@ const config: Config = {
 
       // Transitions
       transitionDuration: {
-        'fast': '150ms',
-        'DEFAULT': '300ms',
-        'slow': '500ms',
+        fast: '150ms',
+        DEFAULT: '300ms',
+        slow: '500ms',
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
 
 export default config;

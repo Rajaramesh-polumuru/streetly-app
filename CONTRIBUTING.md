@@ -61,6 +61,7 @@ Use the following format for branch names:
 - `chore/description` - Maintenance tasks
 
 Examples:
+
 - `feat/add-user-profile`
 - `fix/login-validation`
 - `docs/update-readme`
@@ -68,6 +69,7 @@ Examples:
 ### Development Process
 
 1. Create a new branch from `main`:
+
    ```bash
    git checkout -b feat/your-feature-name
    ```
@@ -75,6 +77,7 @@ Examples:
 2. Make your changes
 
 3. Run tests and linting:
+
    ```bash
    npm run lint
    npm run type-check
@@ -84,6 +87,7 @@ Examples:
 4. Commit your changes (see [Commit Guidelines](#commit-guidelines))
 
 5. Push to your fork:
+
    ```bash
    git push origin feat/your-feature-name
    ```
@@ -171,6 +175,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/) specifica
 ### Scope
 
 Optional, specifies the affected area:
+
 - `api`: Backend API
 - `web`: Frontend application
 - `types`: Shared types package
@@ -249,6 +254,7 @@ Use the provided template and include:
 #### Backend (API)
 
 1. Create a new module in `apps/api/src/modules/`:
+
    ```
    feature-name/
    ├── feature-name.model.ts       # Mongoose model
@@ -337,4 +343,3 @@ If you have questions, please:
 ---
 
 Thank you for contributing! 🎉
-

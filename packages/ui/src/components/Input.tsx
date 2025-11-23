@@ -70,12 +70,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn('w-full', containerClassName)}>
         {label && (
-          <label
-            htmlFor={inputId}
-            className="mb-2 block text-sm font-medium text-primary-900"
-          >
+          <label htmlFor={inputId} className="mb-2 block text-sm font-medium text-primary-900">
             {label}
-            {required && <span className="ml-1 text-error-500" aria-label="required">*</span>}
+            {required && (
+              <span className="ml-1 text-error-500" aria-label="required">
+                *
+              </span>
+            )}
           </label>
         )}
 
@@ -130,10 +131,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {!error && helperText && (
-          <p
-            id={`${inputId}-helper`}
-            className="mt-2 text-sm text-neutral-600"
-          >
+          <p id={`${inputId}-helper`} className="mt-2 text-sm text-neutral-600">
             {helperText}
           </p>
         )}

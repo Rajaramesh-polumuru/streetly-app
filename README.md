@@ -8,12 +8,14 @@
 ## ✨ Features
 
 ### 🏗️ **Architecture**
+
 - **Monorepo Management**: Turborepo for optimal caching and parallel execution
 - **Package Manager**: npm with workspaces for efficient dependency management
 - **TypeScript**: Strict mode enabled with shared configurations
 - **Layered Architecture**: Clean separation of concerns (Controller → Service → Repository → Model)
 
 ### 🎨 **Frontend** (Next.js 14)
+
 - App Router with React Server Components
 - TailwindCSS for styling
 - shadcn/ui component library
@@ -23,6 +25,7 @@
 - Axios with interceptors
 
 ### 🔧 **Backend** (Express + TypeScript)
+
 - RESTful API with Express
 - MongoDB with Mongoose ODM
 - JWT authentication with refresh tokens
@@ -32,6 +35,7 @@
 - OpenAPI documentation ready
 
 ### 📦 **Shared Packages**
+
 - `@repo/types`: Shared TypeScript types and Zod schemas
 - `@repo/ui`: Reusable React components
 - `@repo/utils`: Framework-agnostic utilities
@@ -39,6 +43,7 @@
 - `@repo/typescript-config`: Base TypeScript configurations
 
 ### 🐳 **DevOps**
+
 - Multi-stage Docker builds for optimization
 - Docker Compose for local development
 - GitHub Actions CI/CD pipeline
@@ -79,6 +84,7 @@ cp apps/web/.env.example apps/web/.env.local
 ```
 
 **Important**: Update the environment variables in the `.env` files, especially:
+
 - MongoDB connection string
 - JWT secrets (generate strong secrets for production)
 - CORS origin
@@ -92,6 +98,7 @@ npm run docker:up
 ```
 
 This will start:
+
 - MongoDB on port `27017`
 - API on port `5000`
 - Web on port `3000`

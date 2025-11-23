@@ -5,22 +5,21 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-const drawerVariants = cva(
-  'fixed z-50 bg-white shadow-lg transition-all duration-300',
-  {
-    variants: {
-      side: {
-        left: 'inset-y-0 left-0 h-full w-3/4 max-w-sm border-r-2 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-md',
-        right: 'inset-y-0 right-0 h-full w-3/4 max-w-sm border-l-2 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-md',
-        top: 'inset-x-0 top-0 h-auto max-h-[85vh] w-full border-b-2 data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
-        bottom: 'inset-x-0 bottom-0 h-auto max-h-[85vh] w-full border-t-2 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
-      },
+const drawerVariants = cva('fixed z-50 bg-white shadow-lg transition-all duration-300', {
+  variants: {
+    side: {
+      left: 'inset-y-0 left-0 h-full w-3/4 max-w-sm border-r-2 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-md',
+      right:
+        'inset-y-0 right-0 h-full w-3/4 max-w-sm border-l-2 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-md',
+      top: 'inset-x-0 top-0 h-auto max-h-[85vh] w-full border-b-2 data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
+      bottom:
+        'inset-x-0 bottom-0 h-auto max-h-[85vh] w-full border-t-2 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
     },
-    defaultVariants: {
-      side: 'right',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    side: 'right',
+  },
+});
 
 export interface DrawerProps {
   /** Whether the drawer is open */
@@ -117,9 +116,7 @@ export const DrawerContent = React.forwardRef<
       )}
       {...props}
     >
-      <div className="flex h-full flex-col overflow-hidden">
-        {children}
-      </div>
+      <div className="flex h-full flex-col overflow-hidden">{children}</div>
       {showClose && (
         <DialogPrimitive.Close
           className={cn(
@@ -143,16 +140,15 @@ DrawerContent.displayName = 'DrawerContent';
  *
  * Header section of the drawer.
  */
-export const DrawerHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex flex-col space-y-2 border-b-2 border-neutral-300 p-4', className)}
-    {...props}
-  />
-));
+export const DrawerHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex flex-col space-y-2 border-b-2 border-neutral-300 p-4', className)}
+      {...props}
+    />
+  )
+);
 DrawerHeader.displayName = 'DrawerHeader';
 
 /**
@@ -160,16 +156,11 @@ DrawerHeader.displayName = 'DrawerHeader';
  *
  * Scrollable body section of the drawer.
  */
-export const DrawerBody = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex-1 overflow-y-auto p-4', className)}
-    {...props}
-  />
-));
+export const DrawerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('flex-1 overflow-y-auto p-4', className)} {...props} />
+  )
+);
 DrawerBody.displayName = 'DrawerBody';
 
 /**
@@ -177,16 +168,11 @@ DrawerBody.displayName = 'DrawerBody';
  *
  * Footer section of the drawer for actions.
  */
-export const DrawerFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('border-t-2 border-neutral-300 p-4', className)}
-    {...props}
-  />
-));
+export const DrawerFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('border-t-2 border-neutral-300 p-4', className)} {...props} />
+  )
+);
 DrawerFooter.displayName = 'DrawerFooter';
 
 /**

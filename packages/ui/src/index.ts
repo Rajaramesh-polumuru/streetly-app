@@ -20,4 +20,18 @@
 export * from './components';
 
 // Export utilities
-export { cn, formatCurrency, formatDate, formatTime, formatDateTime, timeElapsed, truncate, getInitials, sleep, debounce, throttle, isEmpty, generateId } from './lib/utils';
+export {
+  cn,
+  formatCurrency,
+  formatDate,
+  formatTime,
+  formatDateTime,
+  timeElapsed,
+  truncate,
+  getInitials,
+  sleep,
+  debounce,
+  throttle,
+  isEmpty,
+  generateId,
+} from './lib/utils';

@@ -4,29 +4,26 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-const spinnerVariants = cva(
-  'animate-spin',
-  {
-    variants: {
-      size: {
-        sm: 'h-4 w-4',
-        md: 'h-6 w-6',
-        lg: 'h-8 w-8',
-        xl: 'h-12 w-12',
-      },
-      variant: {
-        default: 'text-primary-600',
-        accent: 'text-accent-500',
-        white: 'text-white',
-        muted: 'text-neutral-600',
-      },
+const spinnerVariants = cva('animate-spin', {
+  variants: {
+    size: {
+      sm: 'h-4 w-4',
+      md: 'h-6 w-6',
+      lg: 'h-8 w-8',
+      xl: 'h-12 w-12',
     },
-    defaultVariants: {
-      size: 'md',
-      variant: 'default',
+    variant: {
+      default: 'text-primary-600',
+      accent: 'text-accent-500',
+      white: 'text-white',
+      muted: 'text-neutral-600',
     },
-  }
-);
+  },
+  defaultVariants: {
+    size: 'md',
+    variant: 'default',
+  },
+});
 
 export interface SpinnerProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -99,11 +96,7 @@ export const SpinnerOverlay = React.forwardRef<HTMLDivElement, SpinnerOverlayPro
         aria-label="Loading"
       >
         <Spinner size={size} variant={variant} {...props} />
-        {message && (
-          <p className="mt-4 text-lg font-medium text-white">
-            {message}
-          </p>
-        )}
+        {message && <p className="mt-4 text-lg font-medium text-white">{message}</p>}
       </div>
     );
   }

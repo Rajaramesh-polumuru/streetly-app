@@ -29,8 +29,7 @@ const buttonVariants = cva(
         destructive:
           'bg-error-500 text-white hover:bg-error-600 focus-visible:ring-error-500 active:scale-95 shadow-sm hover:shadow-md',
         // Link - Text only
-        link:
-          'text-accent-600 underline-offset-4 hover:underline focus-visible:ring-accent-500',
+        link: 'text-accent-600 underline-offset-4 hover:underline focus-visible:ring-accent-500',
       },
       size: {
         sm: 'h-9 px-3 text-sm',

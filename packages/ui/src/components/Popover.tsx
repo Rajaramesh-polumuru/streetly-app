@@ -37,7 +37,8 @@ export const PopoverClose = PopoverPrimitive.Close;
  *
  * Container for popover content.
  */
-export interface PopoverContentProps extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
+export interface PopoverContentProps
+  extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
   /** Whether to show arrow */
   showArrow?: boolean;
 }
@@ -74,16 +75,11 @@ PopoverContent.displayName = 'PopoverContent';
  *
  * Header section for popover.
  */
-export const PopoverHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('mb-3 flex flex-col space-y-1', className)}
-    {...props}
-  />
-));
+export const PopoverHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('mb-3 flex flex-col space-y-1', className)} {...props} />
+  )
+);
 PopoverHeader.displayName = 'PopoverHeader';
 
 /**
@@ -95,11 +91,7 @@ export const PopoverTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, children, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn('text-lg font-semibold text-primary-900', className)}
-    {...props}
-  >
+  <h3 ref={ref} className={cn('text-lg font-semibold text-primary-900', className)} {...props}>
     {children}
   </h3>
 ));
@@ -114,11 +106,7 @@ export const PopoverDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn('text-sm text-neutral-600', className)}
-    {...props}
-  />
+  <p ref={ref} className={cn('text-sm text-neutral-600', className)} {...props} />
 ));
 PopoverDescription.displayName = 'PopoverDescription';
 
@@ -127,14 +115,13 @@ PopoverDescription.displayName = 'PopoverDescription';
  *
  * Footer section for popover actions.
  */
-export const PopoverFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('mt-3 flex items-center justify-end gap-2', className)}
-    {...props}
-  />
-));
+export const PopoverFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('mt-3 flex items-center justify-end gap-2', className)}
+      {...props}
+    />
+  )
+);
 PopoverFooter.displayName = 'PopoverFooter';

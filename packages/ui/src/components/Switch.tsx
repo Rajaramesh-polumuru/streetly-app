@@ -3,7 +3,8 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-export interface SwitchProps extends Omit<React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>, 'children'> {
+export interface SwitchProps
+  extends Omit<React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>, 'children'> {
   /** Label for the switch */
   label?: string;
   /** Description text */
@@ -36,22 +37,9 @@ export interface SwitchProps extends Omit<React.ComponentPropsWithoutRef<typeof 
  * />
  * ```
  */
-export const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitive.Root>,
-  SwitchProps
->(
+export const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitive.Root>, SwitchProps>(
   (
-    {
-      className,
-      containerClassName,
-      label,
-      description,
-      error,
-      id,
-      name,
-      disabled,
-      ...props
-    },
+    { className, containerClassName, label, description, error, id, name, disabled, ...props },
     ref
   ) => {
     const switchId = id || name;
@@ -72,12 +60,7 @@ export const Switch = React.forwardRef<
               </label>
             )}
             {description && (
-              <p
-                className={cn(
-                  'mt-1 text-xs text-neutral-600',
-                  disabled && 'opacity-50'
-                )}
-              >
+              <p className={cn('mt-1 text-xs text-neutral-600', disabled && 'opacity-50')}>
                 {description}
               </p>
             )}

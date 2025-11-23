@@ -3,7 +3,8 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-export interface SeparatorProps extends React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> {
+export interface SeparatorProps
+  extends React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> {
   /** Label to display in the middle of separator */
   label?: string;
 }
@@ -24,58 +25,45 @@ export interface SeparatorProps extends React.ComponentPropsWithoutRef<typeof Se
 export const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   SeparatorProps
->(
-  (
-    {
-      className,
-      orientation = 'horizontal',
-      decorative = true,
-      label,
-      ...props
-    },
-    ref
-  ) => {
-    if (label && orientation === 'horizontal') {
-      return (
-        <div className="relative flex items-center py-4">
-          <div className="flex-grow">
-            <SeparatorPrimitive.Root
-              ref={ref}
-              decorative={decorative}
-              orientation={orientation}
-              className={cn('h-px bg-neutral-300', className)}
-              {...props}
-            />
-          </div>
-          <span className="mx-4 flex-shrink text-sm text-neutral-600">
-            {label}
-          </span>
-          <div className="flex-grow">
-            <SeparatorPrimitive.Root
-              decorative={decorative}
-              orientation={orientation}
-              className={cn('h-px bg-neutral-300', className)}
-              {...props}
-            />
-          </div>
-        </div>
-      );
-    }
-
+>(({ className, orientation = 'horizontal', decorative = true, label, ...props }, ref) => {
+  if (label && orientation === 'horizontal') {
     return (
-      <SeparatorPrimitive.Root
-        ref={ref}
-        decorative={decorative}
-        orientation={orientation}
-        className={cn(
-          'shrink-0 bg-neutral-300',
-          orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
-          className
-        )}
-        {...props}
-      />
+      <div className="relative flex items-center py-4">
+        <div className="flex-grow">
+          <SeparatorPrimitive.Root
+            ref={ref}
+            decorative={decorative}
+            orientation={orientation}
+            className={cn('h-px bg-neutral-300', className)}
+            {...props}
+          />
+        </div>
+        <span className="mx-4 flex-shrink text-sm text-neutral-600">{label}</span>
+        <div className="flex-grow">
+          <SeparatorPrimitive.Root
+            decorative={decorative}
+            orientation={orientation}
+            className={cn('h-px bg-neutral-300', className)}
+            {...props}
+          />
+        </div>
+      </div>
     );
   }
-);
+
+  return (
+    <SeparatorPrimitive.Root
+      ref={ref}
+      decorative={decorative}
+      orientation={orientation}
+      className={cn(
+        'shrink-0 bg-neutral-300',
+        orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
+        className
+      )}
+      {...props}
+    />
+  );
+});
 
 Separator.displayName = 'Separator';

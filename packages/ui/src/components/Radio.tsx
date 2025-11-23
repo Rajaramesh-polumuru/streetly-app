@@ -4,7 +4,8 @@ import React from 'react';
 
 import { cn } from '../lib/utils';
 
-export interface RadioGroupProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {
+export interface RadioGroupProps
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {
   /** Label for the radio group */
   label?: string;
   /** Error message to display */
@@ -64,12 +65,13 @@ export const RadioGroup = React.forwardRef<
     return (
       <div className={cn('w-full', containerClassName)}>
         {label && (
-          <label
-            htmlFor={radioGroupId}
-            className="mb-3 block text-sm font-medium text-primary-900"
-          >
+          <label htmlFor={radioGroupId} className="mb-3 block text-sm font-medium text-primary-900">
             {label}
-            {required && <span className="ml-1 text-error-500" aria-label="required">*</span>}
+            {required && (
+              <span className="ml-1 text-error-500" aria-label="required">
+                *
+              </span>
+            )}
           </label>
         )}
 
@@ -103,10 +105,7 @@ export const RadioGroup = React.forwardRef<
         )}
 
         {!error && helperText && (
-          <p
-            id={`${radioGroupId}-helper`}
-            className="mt-2 text-sm text-neutral-600"
-          >
+          <p id={`${radioGroupId}-helper`} className="mt-2 text-sm text-neutral-600">
             {helperText}
           </p>
         )}
@@ -128,7 +127,8 @@ RadioGroup.displayName = 'RadioGroup';
  * <RadioItem value="option2" label="Option 2" description="Additional info" />
  * ```
  */
-export interface RadioItemProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
+export interface RadioItemProps
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
   /** Label for the radio item */
   label: string;
   /** Optional description */
@@ -172,9 +172,7 @@ export const RadioItem = React.forwardRef<
           {label}
         </label>
         {description && (
-          <span className="text-xs text-neutral-600 peer-disabled:opacity-50">
-            {description}
-          </span>
+          <span className="text-xs text-neutral-600 peer-disabled:opacity-50">{description}</span>
         )}
       </div>
     </div>

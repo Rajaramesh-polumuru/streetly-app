@@ -77,12 +77,13 @@ export const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
     return (
       <div className={cn('w-full', containerClassName)}>
         {label && (
-          <label
-            htmlFor={selectId}
-            className="mb-2 block text-sm font-medium text-primary-900"
-          >
+          <label htmlFor={selectId} className="mb-2 block text-sm font-medium text-primary-900">
             {label}
-            {required && <span className="ml-1 text-error-500" aria-label="required">*</span>}
+            {required && (
+              <span className="ml-1 text-error-500" aria-label="required">
+                *
+              </span>
+            )}
           </label>
         )}
 
@@ -128,9 +129,7 @@ export const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
               <SelectPrimitive.ScrollUpButton className="flex cursor-default items-center justify-center py-1">
                 <ChevronUp className="h-4 w-4" />
               </SelectPrimitive.ScrollUpButton>
-              <SelectPrimitive.Viewport className="p-1">
-                {children}
-              </SelectPrimitive.Viewport>
+              <SelectPrimitive.Viewport className="p-1">{children}</SelectPrimitive.Viewport>
               <SelectPrimitive.ScrollDownButton className="flex cursor-default items-center justify-center py-1">
                 <ChevronDown className="h-4 w-4" />
               </SelectPrimitive.ScrollDownButton>
@@ -149,10 +148,7 @@ export const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
         )}
 
         {!error && helperText && (
-          <p
-            id={`${selectId}-helper`}
-            className="mt-2 text-sm text-neutral-600"
-          >
+          <p id={`${selectId}-helper`} className="mt-2 text-sm text-neutral-600">
             {helperText}
           </p>
         )}
@@ -173,7 +169,8 @@ Select.displayName = 'Select';
  * <SelectItem value="option1">Option 1</SelectItem>
  * ```
  */
-export interface SelectItemProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
+export interface SelectItemProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
   children: React.ReactNode;
 }
 
@@ -215,7 +212,8 @@ SelectItem.displayName = 'SelectItem';
  * </SelectGroup>
  * ```
  */
-export interface SelectGroupProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Group> {
+export interface SelectGroupProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Group> {
   label?: string;
   children: React.ReactNode;
 }
