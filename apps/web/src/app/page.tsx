@@ -436,7 +436,7 @@ export default function Home() {
                   <Button
                     variant="primary"
                     size="lg"
-                    className="bg-white text-accent-600 hover:bg-neutral-100"
+                    className="bg-white text-accent-600 hover:bg-neutral-100 shadow-lg font-semibold"
                     rightIcon={<ArrowRight className="h-5 w-5" />}
                   >
                     Start Free Trial
@@ -444,9 +444,8 @@ export default function Home() {
                 </Link>
                 <Link href={ROUTES.LOGIN}>
                   <Button
-                    variant="outline"
                     size="lg"
-                    className="border-white text-white hover:bg-white/10"
+                    className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-accent-600 transition-all duration-300 font-semibold"
                   >
                     Sign In
                   </Button>
